@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GOLDEN CARE｜愛知県岡崎市のプライベートエステサロン。韓国コルギ・小顔矯正・肌管理のスペシャリスト。口コミ評価4.98。東岡崎駅から車10分。">
+  <meta property="og:title" content="GOLDEN CARE | 岡崎市エステサロン">
+  <meta property="og:description" content="女性のための美を追求。韓国コルギ・小顔矯正・肌管理専門。口コミ4.98の実力派プライベートサロン。">
+  <title>GOLDEN CARE | 岡崎市エステサロン</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================
+       VARIABLES & RESET
+    ================================ */
+    :root {
+      --gold:        #C9A06A;
+      --gold-light:  #E2C898;
+      --gold-pale:   #F5ECD8;
+      --gold-deep:   #A87840;
+      --bg:          #FDFAF5;
+      --bg-alt:      #F7F2EA;
+      --dark:        #1A1A1A;
+      --mid:         #444444;
+      --muted:       #888888;
+      --border:      #E5D9C6;
+      --white:       #FFFFFF;
+
+      --serif-en:  'Cormorant Garamond', 'Times New Roman', serif;
+      --serif-jp:  'Noto Serif JP', serif;
+      --sans:      'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+
+      --container: 1200px;
+      --sp-section: clamp(70px, 10vw, 120px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ================================
+       UTILITIES
+    ================================ */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section {
+      padding: var(--sp-section) 0;
+    }
+
+    .label {
+      display: block;
+      font-family: var(--serif-en);
+      font-size: 11px;
+      letter-spacing: 0.45em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .heading-en {
+      font-family: var(--serif-en);
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: var(--dark);
+    }
+
+    .heading-jp {
+      font-family: var(--serif-jp);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.25em;
+      margin-top: 10px;
+      margin-bottom: 48px;
+    }
+
+    .gold-bar {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin: 18px 0 36px;
+    }
+
+    /* fade-in */
+    .fi {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .fi.show { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: 0.12s; }
+    .fi-d2 { transition-delay: 0.24s; }
+    .fi-d3 { transition-delay: 0.36s; }
+    .fi-d4 { transition-delay: 0.48s; }
+
+    /* ================================
+       NAVIGATION
+    ================================ */
+    #nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    #nav.scrolled {
+      background: rgba(253, 250, 245, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 18px 48px;
+      box-shadow: 0 1px 24px rgba(0,0,0,0.07);
+    }
+
+    .nav-logo {
+      font-family: var(--serif-en);
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--white);
+      transition: color 0.4s;
+    }
+    #nav.scrolled .nav-logo { color: var(--dark); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links li a {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.3s;
+      font-weight: 300;
+    }
+    #nav.scrolled .nav-links li a { color: var(--mid); }
+    .nav-links li a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      padding: 9px 22px;
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--white);
+      transition: all 0.3s;
+    }
+    #nav.scrolled .nav-cta {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .nav-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white) !important;
+    }
+
+    /* hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--white);
+      transition: background 0.4s;
+    }
+    #nav.scrolled .hamburger span { background: var(--dark); }
+
+    /* mobile drawer */
+    #drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    #drawer.open { display: flex; }
+
+    .drawer-close {
+      position: absolute;
+      top: 24px; right: 28px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: var(--dark);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    #drawer a {
+      font-family: var(--serif-en);
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--dark);
+      transition: color 0.3s;
+    }
+    #drawer a:hover { color: var(--gold); }
+
+    .drawer-cta {
+      margin-top: 8px;
+      font-size: 13px !important;
+      letter-spacing: 0.2em;
+      color: var(--gold) !important;
+      border-bottom: 1px solid var(--gold-light);
+      padding-bottom: 2px;
+    }
+
+    /* ================================
+       HERO
+    ================================ */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(0,0,0,0.38) 0%,
+        rgba(0,0,0,0.18) 45%,
+        rgba(0,0,0,0.52) 100%
+      );
+    }
+
+    .hero-body {
+      position: absolute;
+      bottom: 11%;
+      left: 8%;
+    }
+
+    .hero-sub {
+      font-size: 11px;
+      letter-spacing: 0.42em;
+      color: var(--gold-light);
+      font-family: var(--serif-en);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: var(--serif-en);
+      font-size: clamp(62px, 9.5vw, 112px);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 22px;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif-jp);
+      font-size: clamp(13px, 1.4vw, 16px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.3em;
+      margin-bottom: 44px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 14px 42px;
+      border: 1px solid rgba(255,255,255,0.65);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      transition: all 0.35s;
+    }
+    .hero-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      right: 44px;
+      writing-mode: vertical-rl;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.55);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5));
+      animation: scl 1.8s ease-in-out infinite;
+    }
+    @keyframes scl {
+      0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50%  { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ================================
+       CONCEPT
+    ================================ */
+    #concept {
+      background: var(--white);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .concept-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .concept-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+    .concept-img-wrap:hover img { transform: scale(1.04); }
+
+    .concept-body p {
+      font-size: 14px;
+      line-height: 2.1;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    .concept-quote {
+      margin-top: 40px;
+      padding: 26px 28px;
+      background: var(--gold-pale);
+      border-left: 2px solid var(--gold);
+    }
+    .concept-quote p {
+      font-family: var(--serif-jp);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--dark);
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    /* ================================
+       WHY / REASONS
+    ================================ */
+    #reasons {
+      background: var(--bg);
+    }
+
+    .reasons-header { text-align: center; }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .reason-card {
+      background: var(--white);
+      padding: 52px 40px;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .reason-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+    }
+
+    .reason-num {
+      font-family: var(--serif-en);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .reason-icon-bar {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 22px;
+    }
+
+    .reason-title {
+      font-family: var(--serif-jp);
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .reason-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 2;
+      font-weight: 300;
+    }
+
+    /* ================================
+       MENU
+    ================================ */
+    #menu {
+      background: var(--bg-alt);
+      padding-bottom: 0;
+    }
+
+    .menu-header { margin-bottom: 0; }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 56px;
+    }
+
+    /* featured card spans 2 cols */
+    .menu-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .menu-card.featured {
+      grid-column: span 2;
+    }
+    .menu-card.featured .menu-card-inner {
+      aspect-ratio: 16/9;
+    }
+    .menu-card:not(.featured) .menu-card-inner {
+      aspect-ratio: 4/5;
+    }
+
+    .menu-card-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .menu-card-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .menu-card:hover .menu-card-inner img { transform: scale(1.07); }
+
+    .menu-card-body {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 28px;
+    }
+
+    .menu-card-num {
+      font-family: var(--serif-en);
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .menu-card-title {
+      font-family: var(--serif-en);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 5px;
+    }
+
+    .menu-card-jp {
+      font-size: 11px;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+    }
+
+    .menu-card-desc {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+    .menu-card:hover .menu-card-desc { max-height: 80px; }
+
+    .menu-more {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--bg-alt);
+    }
+
+    /* ================================
+       VOICE
+    ================================ */
+    #voice {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .voice-score-wrap {
+      display: inline-block;
+      margin: 12px auto 52px;
+    }
+
+    .voice-score {
+      font-family: var(--serif-en);
+      font-size: 80px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--dark);
+    }
+
+    .voice-stars {
+      font-size: 18px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      margin: 8px 0 6px;
+    }
+
+    .voice-count {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+      margin-top: 0;
+    }
+
+    .voice-card {
+      padding: 36px 30px;
+      background: var(--bg);
+      border-top: 2px solid var(--gold);
+      transition: box-shadow 0.3s;
+    }
+    .voice-card:hover {
+      box-shadow: 0 6px 30px rgba(0,0,0,0.06);
+    }
+
+    .voice-card-stars {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .voice-card-text {
+      font-size: 14px;
+      line-height: 2;
+      color: #555;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    .voice-card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+    }
+
+    .voice-link {
+      margin-top: 44px;
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      display: inline-block;
+      padding-bottom: 3px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .voice-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ================================
+       STAFF
+    ================================ */
+    #staff {
+      background: var(--bg-alt);
+    }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      margin-top: 56px;
+    }
+
+    .staff-card {
+      padding: 52px 40px;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .staff-card:last-child { border-right: none; }
+    .staff-card:hover { background: var(--white); }
+
+    .staff-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      color: var(--gold);
+      border: 1px solid var(--gold-light);
+      padding: 4px 12px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .staff-name {
+      font-family: var(--serif-en);
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .staff-name-jp {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      margin-bottom: 6px;
+    }
+
+    .staff-career {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+
+    .staff-bar {
+      width: 28px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .staff-msg {
+      font-size: 13.5px;
+      line-height: 1.9;
+      color: var(--mid);
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ================================
+       ACCESS
+    ================================ */
+    #access {
+      background: var(--white);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .access-map {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--bg-alt);
+    }
+    .access-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: grayscale(20%);
+    }
+
+    .access-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .access-table tr { border-bottom: 1px solid var(--border); }
+    .access-table tr:last-child { border-bottom: none; }
+
+    .access-table th {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      font-weight: 400;
+      text-align: left;
+      padding: 18px 0;
+      width: 28%;
+      vertical-align: top;
+    }
+
+    .access-table td {
+      font-size: 14px;
+      color: var(--mid);
+      padding: 18px 0;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .access-table td a {
+      color: var(--gold);
+      transition: opacity 0.3s;
+    }
+    .access-table td a:hover { opacity: 0.75; }
+
+    .parking-tag {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid var(--gold-light);
+      padding: 3px 10px;
+    }
+
+    /* ================================
+       CTA BANNER
+    ================================ */
+    #cta {
+      position: relative;
+      padding: clamp(90px, 14vw, 160px) 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 8, 5, 0.62);
+    }
+
+    .cta-body {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-label {
+      font-family: var(--serif-en);
+      font-size: 11px;
+      letter-spacing: 0.44em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .cta-title {
+      font-family: var(--serif-en);
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .cta-sub {
+      font-family: var(--serif-jp);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.25em;
+      margin-bottom: 50px;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 16px 52px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      transition: background 0.3s;
+    }
+    .btn-gold:hover { background: var(--gold-deep); color: var(--white); }
+
+    .btn-line {
+      display: inline-block;
+      padding: 15px 52px;
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      transition: all 0.3s;
+    }
+    .btn-line:hover { background: rgba(255,255,255,0.12); }
+
+    /* ================================
+       FOOTER
+    ================================ */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.6);
+      padding: 72px 0 32px;
+    }
+
+    .footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-logo {
+      font-family: var(--serif-en);
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-family: var(--serif-jp);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 28px;
+    }
+
+    .footer-sns {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-sns a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      letter-spacing: 0;
+      color: rgba(255,255,255,0.55);
+      transition: all 0.3s;
+    }
+    .footer-sns a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 22px;
+    }
+
+    .footer-nav-list li { margin-bottom: 12px; }
+    .footer-nav-list a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.52);
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .footer-nav-list a:hover { color: var(--white); }
+
+    .footer-info-list li {
+      font-size: 12px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 8px;
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.22);
+    }
+
+    /* ================================
+       FLOAT BUTTON (MOBILE)
+    ================================ */
+    #float-btn {
+      display: none;
+      position: fixed;
+      bottom: 22px;
+      right: 20px;
+      z-index: 90;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      padding: 13px 24px;
+      box-shadow: 0 4px 22px rgba(201,160,106,0.45);
+      transition: background 0.3s;
+    }
+    #float-btn:hover { background: var(--gold-deep); }
+
+    /* ================================
+       RESPONSIVE
+    ================================ */
+    @media (max-width: 1024px) {
+      .concept-grid { gap: 52px; }
+      .reasons-grid { gap: 2px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .menu-card.featured { grid-column: span 2; }
+      .menu-card.featured .menu-card-inner { aspect-ratio: 16/8; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --sp-section: 64px; }
+
+      #nav { padding: 18px 24px; }
+      #nav.scrolled { padding: 14px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .nav-logo { font-size: 17px; }
+
+      .hero-body { left: 6%; }
+
+      .concept-grid { grid-template-columns: 1fr; gap: 36px; }
+      .concept-img-wrap { aspect-ratio: 4/3; }
+
+      .reasons-grid { grid-template-columns: 1fr; }
+      .reason-card { padding: 40px 28px; }
+
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card.featured { grid-column: span 1; }
+      .menu-card.featured .menu-card-inner { aspect-ratio: 4/3; }
+      .menu-card:not(.featured) .menu-card-inner { aspect-ratio: 3/2; }
+
+      .voice-grid { grid-template-columns: 1fr; }
+
+      .staff-grid { grid-template-columns: 1fr; border: 1px solid var(--border); }
+      .staff-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .staff-card:last-child { border-bottom: none; }
+
+      .access-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+
+      .cta-btns { flex-direction: column; align-items: center; }
+
+      #float-btn { display: block; }
+
+      .container { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">GOLDEN CARE</a>
+
+    <ul class="nav-links">
+      <li><a href="#concept">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#staff">Staff</a></li>
+      <li><a href="#access">Access</a></li>
+    </ul>
+
+    <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="nav-cta">RESERVE</a>
+
+    <div class="hamburger" id="ham" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div id="drawer">
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    <a href="#concept" onclick="closeDrawer()">About</a>
+    <a href="#menu" onclick="closeDrawer()">Menu</a>
+    <a href="#voice" onclick="closeDrawer()">Voice</a>
+    <a href="#staff" onclick="closeDrawer()">Staff</a>
+    <a href="#access" onclick="closeDrawer()">Access</a>
+    <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="drawer-cta">ご予約はこちら</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="items/IMG_2922.JPG" alt="Golden Care エステサロン">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+      <p class="hero-sub">Esthetic Salon &nbsp;—&nbsp; Okazaki, Aichi</p>
+      <h1 class="hero-title">GOLDEN<br>CARE</h1>
+      <p class="hero-tagline">女性のための美を、追求する。</p>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="hero-btn">ご予約はこちら</a>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- ========== CONCEPT ========== -->
+  <section id="concept" class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="concept-grid">
+
+        <div class="concept-img-wrap fi">
+          <img src="items/IMG_5614.JPG" alt="韓国コルギ施術">
+        </div>
+
+        <div class="concept-body fi fi-d1">
+          <span class="label">About</span>
+          <h2 class="heading-en">Concept</h2>
+          <p class="heading-jp">ゴールデンケアについて</p>
+          <div class="gold-bar"></div>
+
+          <p>技術が、あなたの毎日を変える。</p>
+          <p>GOLDEN CAREは、愛知県岡崎市にあるプライベートエステサロンです。エステ歴10〜15年のスペシャリストが、お客様一人ひとりのお悩みに寄り添い、本質的な美しさへと導きます。</p>
+          <p>韓国発祥の最先端美容技術と熟練した手技を融合させた施術は、「一度で変わった」「毎月通うのが楽しみ」と多くのお客様からご好評をいただいております。</p>
+
+          <div class="concept-quote">
+            <p>「コルギには絶対の自信があります。<br>ダウンタイムなしで、確かな変化を実感してください。」</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REASONS ========== -->
+  <section id="reasons" class="section">
+    <div class="container">
+      <div class="reasons-header fi">
+        <span class="label" style="text-align:center; display:block;">Why Golden Care</span>
+        <h2 class="heading-en" style="text-align:center;">3 Reasons</h2>
+        <p class="heading-jp" style="text-align:center;">選ばれる3つの理由</p>
+      </div>
+      <div class="reasons-grid">
+
+        <div class="reason-card fi fi-d1">
+          <div class="reason-num">01</div>
+          <div class="reason-icon-bar"></div>
+          <h3 class="reason-title">圧倒的な技術力</h3>
+          <p class="reason-text">エステ歴10〜15年のスペシャリストが在籍。韓国最新美容技術をベースにした施術は、口コミ評価4.98という実績が物語っています。</p>
+        </div>
+
+        <div class="reason-card fi fi-d2">
+          <div class="reason-num">02</div>
+          <div class="reason-icon-bar"></div>
+          <h3 class="reason-title">即効性・ダウンタイムなし</h3>
+          <p class="reason-text">日韓医師監修のマシンと熟練の手技を組み合わせ、施術当日から実感できる変化をお届け。翌日からそのままお仕事にも戻れます。</p>
+        </div>
+
+        <div class="reason-card fi fi-d3">
+          <div class="reason-num">03</div>
+          <div class="reason-icon-bar"></div>
+          <h3 class="reason-title">完全プライベート空間</h3>
+          <p class="reason-text">アットホームな雰囲気の中、丁寧なカウンセリングを実施。お客様だけの特別な時間を、心ゆくまでお楽しみください。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MENU ========== -->
+  <section id="menu" class="section" style="background: var(--bg-alt); padding-bottom: 0;">
+    <div class="container menu-header fi">
+      <span class="label">Treatment</span>
+      <h2 class="heading-en">Menu</h2>
+      <p class="heading-jp">施術メニュー</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <!-- 01 コルギ (featured) -->
+      <div class="menu-card featured fi">
+        <div class="menu-card-inner">
+          <img src="items/IMG_3150.JPG" alt="韓国コルギ">
+          <div class="menu-card-body">
+            <span class="menu-card-num">01 &nbsp;—&nbsp; SIGNATURE</span>
+            <h3 class="menu-card-title">Korean Korgi</h3>
+            <p class="menu-card-jp">韓国コルギ / 7Dコルギ</p>
+            <p class="menu-card-desc">当サロンが絶対の自信を持つ看板メニュー。骨格から小顔へアプローチし、一度の施術でフェイスラインの劇的な変化を実感いただけます。ダウンタイムなし。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 LED -->
+      <div class="menu-card fi fi-d1">
+        <div class="menu-card-inner">
+          <img src="items/IMG_9867.JPG" alt="LEDフォトフェイシャル">
+          <div class="menu-card-body">
+            <span class="menu-card-num">02</span>
+            <h3 class="menu-card-title">LED Facial</h3>
+            <p class="menu-card-jp">LEDフォトフェイシャル</p>
+            <p class="menu-card-desc">光の力で肌の奥から整える次世代ケア。くすみ・エイジングにアプローチします。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 機器施術 -->
+      <div class="menu-card fi fi-d2">
+        <div class="menu-card-inner">
+          <img src="items/IMG_9848.JPG" alt="ハイドラ / マシン施術">
+          <div class="menu-card-body">
+            <span class="menu-card-num">03</span>
+            <h3 class="menu-card-title">Hydra / Peeling</h3>
+            <p class="menu-card-jp">ハイドラ / ララピール / ハーブピーリング</p>
+            <p class="menu-card-desc">深層クレンジングと水光トリートメントで、透明感と潤いあふれる肌へ。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 毛穴 -->
+      <div class="menu-card fi">
+        <div class="menu-card-inner">
+          <img src="items/IMG_9835.JPG" alt="毛穴エクストラクション">
+          <div class="menu-card-body">
+            <span class="menu-card-num">04</span>
+            <h3 class="menu-card-title">Pore Care</h3>
+            <p class="menu-card-jp">毛穴エクストラクション</p>
+            <p class="menu-card-desc">毛穴の奥の汚れを徹底除去。なめらかな素肌へと整えます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 ヘッド -->
+      <div class="menu-card fi fi-d1">
+        <div class="menu-card-inner">
+          <img src="items/IMG_5615.JPG" alt="ドライヘッドマッサージ">
+          <div class="menu-card-body">
+            <span class="menu-card-num">05</span>
+            <h3 class="menu-card-title">Head Massage</h3>
+            <p class="menu-card-jp">ドライヘッドマッサージ / 頭蓋骨矯正</p>
+            <p class="menu-card-desc">頭部・頭蓋骨からアプローチ。顔のたるみ改善と深いリラクゼーション。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-more">
+      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold">すべてのメニュー・料金を見る</a>
+    </div>
+  </section>
+
+  <!-- ========== VOICE ========== -->
+  <section id="voice" class="section" style="background: var(--white); text-align: center;">
+    <div class="container">
+
+      <div class="fi">
+        <span class="label" style="display:block; text-align:center;">Customer Voice</span>
+        <h2 class="heading-en" style="text-align:center;">Voice</h2>
+        <p class="heading-jp" style="text-align:center;">お客様の声</p>
+        <div class="voice-score-wrap">
+          <div class="voice-score">4.98</div>
+          <div class="voice-stars">★★★★★</div>
+          <div class="voice-count">総合評価 &nbsp;|&nbsp; 57件のクチコミ（ホットペッパービューティー）</div>
+        </div>
+      </div>
+
+      <div class="voice-grid">
+
+        <div class="voice-card fi fi-d1">
+          <div class="voice-card-stars">★★★★★</div>
+          <p class="voice-card-text">「一度でフェイスラインがスッキリ！帰り道に鏡を見て驚きました。毎月通うのが今からとても楽しみです。」</p>
+          <p class="voice-card-meta">30代 女性 / 韓国コルギ</p>
+        </div>
+
+        <div class="voice-card fi fi-d2">
+          <div class="voice-card-stars">★★★★★</div>
+          <p class="voice-card-text">「アットホームな雰囲気で、スタッフさんが話しやすくて最高でした。丁寧なカウンセリングで悩みをしっかり聞いてもらえました。」</p>
+          <p class="voice-card-meta">20代 女性 / 小顔矯正</p>
+        </div>
+
+        <div class="voice-card fi fi-d3">
+          <div class="voice-card-stars">★★★★★</div>
+          <p class="voice-card-text">「隠れ家的な実力派サロン。的確なアドバイスと豊富な美容知識で、施術中も勉強になることがたくさん。また必ず来ます！」</p>
+          <p class="voice-card-meta">40代 女性 / 肌管理</p>
+        </div>
+
+      </div>
+
+      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/review/" target="_blank" class="voice-link">ホットペッパービューティーでクチコミをすべて見る →</a>
+
+    </div>
+  </section>
+
+  <!-- ========== STAFF ========== -->
+  <section id="staff" class="section" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="fi">
+        <span class="label">Our Team</span>
+        <h2 class="heading-en">Staff</h2>
+        <p class="heading-jp">スタッフ紹介</p>
+      </div>
+
+      <div class="staff-grid">
+
+        <div class="staff-card fi fi-d1">
+          <span class="staff-badge">Esthetician</span>
+          <h3 class="staff-name">ARI</h3>
+          <p class="staff-name-jp">アリ</p>
+          <p class="staff-career">エステ歴 10年</p>
+          <div class="staff-bar"></div>
+          <p class="staff-msg">「自信を持って毎日を過ごしませんか？あなたの人生、変えます。」</p>
+        </div>
+
+        <div class="staff-card fi fi-d2">
+          <span class="staff-badge">Therapist</span>
+          <h3 class="staff-name">AKI</h3>
+          <p class="staff-name-jp">アキ</p>
+          <p class="staff-career">エステ歴 15年</p>
+          <div class="staff-bar"></div>
+          <p class="staff-msg">「必ず垢抜けを約束します。早く可愛くなりませんか？」</p>
+        </div>
+
+        <div class="staff-card fi fi-d3">
+          <span class="staff-badge">Esthetician</span>
+          <h3 class="staff-name">NOZOMI</h3>
+          <p class="staff-name-jp">ノゾミ</p>
+          <p class="staff-career">エステ歴 15年</p>
+          <div class="staff-bar"></div>
+          <p class="staff-msg">痩身・小顔専門店出身。小顔矯正・痩身施術を得意とし、お客様のお悩みを根本から解決します。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ACCESS ========== -->
+  <section id="access" class="section" style="background: var(--white);">
+    <div class="container">
+      <div class="access-grid">
+
+        <div class="fi">
+          <span class="label">Access</span>
+          <h2 class="heading-en">Access</h2>
+          <p class="heading-jp">アクセス・営業情報</p>
+
+          <table class="access-table">
+            <tr>
+              <th>SALON</th>
+              <td>GOLDEN CARE</td>
+            </tr>
+            <tr>
+              <th>ADDRESS</th>
+              <td>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</td>
+            </tr>
+            <tr>
+              <th>HOURS</th>
+              <td>8:00 〜 21:00<br><span style="font-size:12px; color:var(--muted);">定休日なし（年中無休）</span></td>
+            </tr>
+            <tr>
+              <th>ACCESS</th>
+              <td>
+                東岡崎駅より車で約10分<br>
+                岡崎ICより車で約8分<br>
+                県道26号沿い<br>
+                <span class="parking-tag">P 駐車場あり</span>
+              </td>
+            </tr>
+            <tr>
+              <th>TEL</th>
+              <td><a href="tel:09012831567">090-1283-1567</a></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="access-map fi fi-d1">
+          <iframe
+            src="https://maps.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%B2%A1%E5%B4%8E%E5%B8%82%E7%A8%B2%E7%86%8A%E7%94%BA8%E4%B8%81%E7%9B%AE213+%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%93%E3%83%AB&output=embed&z=16"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="GOLDEN CARE アクセスマップ">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section id="cta">
+    <div class="cta-bg">
+      <img src="items/IMG_9835.JPG" alt="Golden Care">
+    </div>
+    <div class="cta-overlay"></div>
+    <div class="cta-body fi">
+      <p class="cta-label">Reservation</p>
+      <h2 class="cta-title">Book a Treatment</h2>
+      <p class="cta-sub">あなたの美しさを、今日から始めましょう。</p>
+      <div class="cta-btns">
+        <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold">ホットペッパーで予約する</a>
+        <a href="tel:09012831567" class="btn-line">電話で予約する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+
+        <div>
+          <div class="footer-logo">GOLDEN CARE</div>
+          <p class="footer-tagline">女性のための美を追求</p>
+          <div class="footer-sns">
+            <!-- InstagramとLINEのURLが確定したら差し替えてください -->
+            <a href="#" target="_blank" title="Instagram">IG</a>
+            <a href="#" target="_blank" title="LINE公式アカウント">LINE</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#concept">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#voice">Voice</a></li>
+            <li><a href="#staff">Staff</a></li>
+            <li><a href="#access">Access</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul class="footer-info-list">
+            <li>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</li>
+            <li>TEL: 090-1283-1567</li>
+            <li>営業時間: 8:00〜21:00<br>年中無休</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 GOLDEN CARE All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Float Button (Mobile) -->
+  <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" id="float-btn">ご予約はこちら</a>
+
+  <!-- ========== JS ========== -->
+  <script>
+    /* -- Nav scroll -- */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* -- Fade-in on scroll -- */
+    const fiEls = document.querySelectorAll('.fi');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    fiEls.forEach(el => io.observe(el));
+
+    /* -- Mobile drawer -- */
+    function openDrawer() {
+      document.getElementById('drawer').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+
+</body>
+</html>
