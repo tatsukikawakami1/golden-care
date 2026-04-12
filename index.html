@@ -53,15 +53,8 @@
     /* ================================
        UTILITIES
     ================================ */
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .section {
-      padding: var(--sp-section) 0;
-    }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
+    .section { padding: var(--sp-section) 0; }
 
     .label {
       display: block;
@@ -72,16 +65,13 @@
       text-transform: uppercase;
       margin-bottom: 12px;
     }
-
     .heading-en {
       font-family: var(--serif-en);
       font-size: clamp(38px, 5.5vw, 64px);
       font-weight: 300;
       letter-spacing: 0.08em;
       line-height: 1;
-      color: var(--dark);
     }
-
     .heading-jp {
       font-family: var(--serif-jp);
       font-size: 12px;
@@ -91,25 +81,14 @@
       margin-top: 10px;
       margin-bottom: 48px;
     }
-
-    .gold-bar {
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
-      margin: 18px 0 36px;
-    }
+    .gold-bar { width: 36px; height: 1px; background: var(--gold); margin: 18px 0 36px; }
 
     /* fade-in */
-    .fi {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.85s ease, transform 0.85s ease;
-    }
+    .fi { opacity: 0; transform: translateY(28px); transition: opacity 0.85s ease, transform 0.85s ease; }
     .fi.show { opacity: 1; transform: translateY(0); }
     .fi-d1 { transition-delay: 0.12s; }
     .fi-d2 { transition-delay: 0.24s; }
     .fi-d3 { transition-delay: 0.36s; }
-    .fi-d4 { transition-delay: 0.48s; }
 
     /* ================================
        NAVIGATION
@@ -124,15 +103,13 @@
       padding: 28px 48px;
       transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
     }
-
     #nav.scrolled {
-      background: rgba(253, 250, 245, 0.96);
+      background: rgba(253,250,245,0.96);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       padding: 18px 48px;
       box-shadow: 0 1px 24px rgba(0,0,0,0.07);
     }
-
     .nav-logo {
       font-family: var(--serif-en);
       font-size: 20px;
@@ -143,12 +120,7 @@
     }
     #nav.scrolled .nav-logo { color: var(--dark); }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links li a {
       font-size: 11px;
       letter-spacing: 0.18em;
@@ -167,31 +139,11 @@
       color: var(--white);
       transition: all 0.3s;
     }
-    #nav.scrolled .nav-cta {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-    .nav-cta:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--white) !important;
-    }
+    #nav.scrolled .nav-cta { border-color: var(--gold); color: var(--gold); }
+    .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white) !important; }
 
-    /* hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--white);
-      transition: background 0.4s;
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--white); transition: background 0.4s; }
     #nav.scrolled .hamburger span { background: var(--dark); }
 
     /* mobile drawer */
@@ -204,87 +156,26 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 36px;
+      gap: 32px;
     }
     #drawer.open { display: flex; }
-
-    .drawer-close {
-      position: absolute;
-      top: 24px; right: 28px;
-      background: none;
-      border: none;
-      font-size: 26px;
-      color: var(--dark);
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    #drawer a {
-      font-family: var(--serif-en);
-      font-size: 28px;
-      font-weight: 300;
-      letter-spacing: 0.2em;
-      color: var(--dark);
-      transition: color 0.3s;
-    }
+    .drawer-close { position: absolute; top: 24px; right: 28px; background: none; border: none; font-size: 26px; color: var(--dark); cursor: pointer; }
+    #drawer a { font-family: var(--serif-en); font-size: 26px; font-weight: 300; letter-spacing: 0.2em; color: var(--dark); transition: color 0.3s; }
     #drawer a:hover { color: var(--gold); }
-
-    .drawer-cta {
-      margin-top: 8px;
-      font-size: 13px !important;
-      letter-spacing: 0.2em;
-      color: var(--gold) !important;
-      border-bottom: 1px solid var(--gold-light);
-      padding-bottom: 2px;
-    }
+    .drawer-cta { margin-top: 8px; font-size: 13px !important; color: var(--gold) !important; border-bottom: 1px solid var(--gold-light); padding-bottom: 2px; }
 
     /* ================================
        HERO
     ================================ */
-    #hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 640px;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-    }
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 25%;
-    }
-
+    #hero { position: relative; width: 100%; height: 100vh; min-height: 640px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
     .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        160deg,
-        rgba(0,0,0,0.38) 0%,
-        rgba(0,0,0,0.18) 45%,
-        rgba(0,0,0,0.52) 100%
-      );
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.52) 100%);
     }
-
-    .hero-body {
-      position: absolute;
-      bottom: 11%;
-      left: 8%;
-    }
-
-    .hero-sub {
-      font-size: 11px;
-      letter-spacing: 0.42em;
-      color: var(--gold-light);
-      font-family: var(--serif-en);
-      margin-bottom: 18px;
-    }
-
+    .hero-body { position: absolute; bottom: 11%; left: 8%; }
+    .hero-sub { font-size: 11px; letter-spacing: 0.42em; color: var(--gold-light); font-family: var(--serif-en); margin-bottom: 18px; }
     .hero-title {
       font-family: var(--serif-en);
       font-size: clamp(62px, 9.5vw, 112px);
@@ -294,7 +185,6 @@
       line-height: 0.95;
       margin-bottom: 22px;
     }
-
     .hero-tagline {
       font-family: var(--serif-jp);
       font-size: clamp(13px, 1.4vw, 16px);
@@ -303,7 +193,6 @@
       letter-spacing: 0.3em;
       margin-bottom: 44px;
     }
-
     .hero-btn {
       display: inline-block;
       padding: 14px 42px;
@@ -313,28 +202,17 @@
       letter-spacing: 0.22em;
       transition: all 0.35s;
     }
-    .hero-btn:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
+    .hero-btn:hover { background: var(--gold); border-color: var(--gold); }
     .hero-scroll {
-      position: absolute;
-      bottom: 36px;
-      right: 44px;
+      position: absolute; bottom: 36px; right: 44px;
       writing-mode: vertical-rl;
-      font-size: 9px;
-      letter-spacing: 0.25em;
+      font-size: 9px; letter-spacing: 0.25em;
       color: rgba(255,255,255,0.55);
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      display: flex; align-items: center; gap: 14px;
     }
     .hero-scroll::after {
       content: '';
-      display: block;
-      width: 1px;
-      height: 56px;
+      display: block; width: 1px; height: 56px;
       background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.5));
       animation: scl 1.8s ease-in-out infinite;
     }
@@ -347,636 +225,438 @@
     /* ================================
        CONCEPT
     ================================ */
-    #concept {
-      background: var(--white);
-    }
-
-    .concept-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .concept-img-wrap {
-      overflow: hidden;
-      aspect-ratio: 3/4;
-    }
-    .concept-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.9s ease;
-    }
+    #concept { background: var(--white); }
+    .concept-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .concept-img-wrap { overflow: hidden; aspect-ratio: 3/4; }
+    .concept-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s ease; }
     .concept-img-wrap:hover img { transform: scale(1.04); }
-
-    .concept-body p {
-      font-size: 14px;
-      line-height: 2.1;
-      color: var(--mid);
-      font-weight: 300;
-      margin-bottom: 18px;
-    }
-
-    .concept-quote {
-      margin-top: 40px;
-      padding: 26px 28px;
-      background: var(--gold-pale);
-      border-left: 2px solid var(--gold);
-    }
-    .concept-quote p {
-      font-family: var(--serif-jp);
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      color: var(--dark);
-      line-height: 1.9;
-      margin: 0;
-    }
+    .concept-body p { font-size: 14px; line-height: 2.1; color: var(--mid); font-weight: 300; margin-bottom: 18px; }
+    .concept-quote { margin-top: 40px; padding: 26px 28px; background: var(--gold-pale); border-left: 2px solid var(--gold); }
+    .concept-quote p { font-family: var(--serif-jp); font-size: 14px; letter-spacing: 0.08em; color: var(--dark); line-height: 1.9; margin: 0; }
 
     /* ================================
-       WHY / REASONS
+       REASONS
     ================================ */
-    #reasons {
-      background: var(--bg);
-    }
-
-    .reasons-header { text-align: center; }
-
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 56px;
-    }
-
-    .reason-card {
-      background: var(--white);
-      padding: 52px 40px;
-      text-align: center;
-      transition: box-shadow 0.3s;
-    }
-    .reason-card:hover {
-      box-shadow: 0 8px 40px rgba(0,0,0,0.07);
-    }
-
-    .reason-num {
-      font-family: var(--serif-en);
-      font-size: 52px;
-      font-weight: 300;
-      color: var(--gold-pale);
-      line-height: 1;
-      margin-bottom: 18px;
-    }
-
-    .reason-icon-bar {
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto 22px;
-    }
-
-    .reason-title {
-      font-family: var(--serif-jp);
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
-    }
-
-    .reason-text {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 2;
-      font-weight: 300;
-    }
+    #reasons { background: var(--bg); }
+    .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+    .reason-card { background: var(--white); padding: 52px 40px; text-align: center; transition: box-shadow 0.3s; }
+    .reason-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
+    .reason-num { font-family: var(--serif-en); font-size: 52px; font-weight: 300; color: var(--gold-pale); line-height: 1; margin-bottom: 18px; }
+    .reason-icon-bar { width: 32px; height: 1px; background: var(--gold); margin: 0 auto 22px; }
+    .reason-title { font-family: var(--serif-jp); font-size: 16px; font-weight: 400; letter-spacing: 0.08em; margin-bottom: 14px; }
+    .reason-text { font-size: 13px; color: var(--muted); line-height: 2; font-weight: 300; }
 
     /* ================================
        MENU
     ================================ */
-    #menu {
-      background: var(--bg-alt);
-      padding-bottom: 0;
-    }
-
-    .menu-header { margin-bottom: 0; }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
-      margin-top: 56px;
-    }
-
-    /* featured card spans 2 cols */
-    .menu-card {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .menu-card.featured {
-      grid-column: span 2;
-    }
-    .menu-card.featured .menu-card-inner {
-      aspect-ratio: 16/9;
-    }
-    .menu-card:not(.featured) .menu-card-inner {
-      aspect-ratio: 4/5;
-    }
-
-    .menu-card-inner {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .menu-card-inner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s ease;
-    }
+    #menu { background: var(--bg-alt); padding-bottom: 0; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 56px; }
+    .menu-card { position: relative; overflow: hidden; cursor: pointer; }
+    .menu-card.featured { grid-column: span 2; }
+    .menu-card.featured .menu-card-inner { aspect-ratio: 16/9; }
+    .menu-card:not(.featured) .menu-card-inner { aspect-ratio: 4/5; }
+    .menu-card-inner { position: relative; overflow: hidden; width: 100%; }
+    .menu-card-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
     .menu-card:hover .menu-card-inner img { transform: scale(1.07); }
-
     .menu-card-body {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 55%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 32px 28px;
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 32px 28px;
     }
-
-    .menu-card-num {
-      font-family: var(--serif-en);
-      font-size: 10px;
-      letter-spacing: 0.38em;
-      color: var(--gold-light);
-      margin-bottom: 8px;
-    }
-
-    .menu-card-title {
-      font-family: var(--serif-en);
-      font-size: clamp(18px, 2.2vw, 26px);
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 5px;
-    }
-
-    .menu-card-jp {
-      font-size: 11px;
-      color: rgba(255,255,255,0.72);
-      letter-spacing: 0.14em;
-      margin-bottom: 10px;
-    }
-
-    .menu-card-desc {
-      font-size: 11.5px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s ease;
-    }
+    .menu-card-num { font-family: var(--serif-en); font-size: 10px; letter-spacing: 0.38em; color: var(--gold-light); margin-bottom: 8px; }
+    .menu-card-title { font-family: var(--serif-en); font-size: clamp(18px,2.2vw,26px); font-weight: 300; letter-spacing: 0.1em; color: var(--white); line-height: 1.15; margin-bottom: 5px; }
+    .menu-card-jp { font-size: 11px; color: rgba(255,255,255,0.72); letter-spacing: 0.14em; margin-bottom: 10px; }
+    .menu-card-desc { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
     .menu-card:hover .menu-card-desc { max-height: 80px; }
-
-    .menu-more {
-      text-align: center;
-      padding: 60px 40px;
-      background: var(--bg-alt);
-    }
+    .menu-more { text-align: center; padding: 60px 40px; background: var(--bg-alt); }
 
     /* ================================
        VOICE
     ================================ */
-    #voice {
-      background: var(--white);
-      text-align: center;
+    #voice { background: var(--white); text-align: center; }
+    .voice-score-wrap { display: inline-block; margin: 12px auto 52px; }
+    .voice-score { font-family: var(--serif-en); font-size: 80px; font-weight: 300; line-height: 1; color: var(--dark); }
+    .voice-stars { font-size: 18px; letter-spacing: 5px; color: var(--gold); margin: 8px 0 6px; }
+    .voice-count { font-size: 11px; letter-spacing: 0.18em; color: var(--muted); }
+    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left; }
+    .voice-card { padding: 36px 30px; background: var(--bg); border-top: 2px solid var(--gold); transition: box-shadow 0.3s; }
+    .voice-card:hover { box-shadow: 0 6px 30px rgba(0,0,0,0.06); }
+    .voice-card-stars { font-size: 12px; letter-spacing: 4px; color: var(--gold); margin-bottom: 16px; }
+    .voice-card-text { font-size: 14px; line-height: 2; color: #555; font-weight: 300; margin-bottom: 18px; }
+    .voice-card-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; }
+    .voice-link { margin-top: 44px; display: inline-block; font-size: 12px; letter-spacing: 0.22em; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 3px; transition: color 0.3s, border-color 0.3s; }
+    .voice-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ================================
+       RESULT / BEFORE-AFTER
+    ================================ */
+    #result {
+      background: #111;
+      padding: var(--sp-section) 0;
     }
 
-    .voice-score-wrap {
-      display: inline-block;
-      margin: 12px auto 52px;
-    }
+    #result .label { color: var(--gold); }
+    #result .heading-en { color: var(--white); }
+    #result .heading-jp { color: rgba(255,255,255,0.45); margin-bottom: 0; }
 
-    .voice-score {
-      font-family: var(--serif-en);
-      font-size: 80px;
-      font-weight: 300;
-      line-height: 1;
-      color: var(--dark);
+    /* progression card */
+    .result-progress {
+      margin-top: 56px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
     }
-
-    .voice-stars {
-      font-size: 18px;
-      letter-spacing: 5px;
-      color: var(--gold);
-      margin: 8px 0 6px;
-    }
-
-    .voice-count {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-    }
-
-    .voice-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: left;
-      margin-top: 0;
-    }
-
-    .voice-card {
-      padding: 36px 30px;
-      background: var(--bg);
-      border-top: 2px solid var(--gold);
-      transition: box-shadow 0.3s;
-    }
-    .voice-card:hover {
-      box-shadow: 0 6px 30px rgba(0,0,0,0.06);
-    }
-
-    .voice-card-stars {
-      font-size: 12px;
-      letter-spacing: 4px;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .voice-card-text {
-      font-size: 14px;
-      line-height: 2;
-      color: #555;
-      font-weight: 300;
-      margin-bottom: 18px;
-    }
-
-    .voice-card-meta {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-    }
-
-    .voice-link {
-      margin-top: 44px;
+    .result-progress img {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
       display: block;
+    }
+    .result-progress-caption {
+      text-align: center;
+      margin-top: 16px;
       font-size: 12px;
       letter-spacing: 0.22em;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-      display: inline-block;
-      padding-bottom: 3px;
-      transition: color 0.3s, border-color 0.3s;
+      color: rgba(255,255,255,0.5);
     }
-    .voice-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* carousel */
+    .ba-carousel-wrap {
+      position: relative;
+      margin-top: 64px;
+      overflow: hidden;
+    }
+
+    .ba-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .ba-slide {
+      flex: 0 0 calc(100% / 3);
+      padding: 0 6px;
+    }
+
+    .ba-slide img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ba-slide-caption {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* carousel controls */
+    .ba-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .ba-arrow {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      color: rgba(255,255,255,0.6);
+    }
+    .ba-arrow:hover { border-color: var(--gold); color: var(--gold); }
+    .ba-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+    .ba-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .ba-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: none;
+    }
+    .ba-dot.active { background: var(--gold); transform: scale(1.3); }
 
     /* ================================
        STAFF
     ================================ */
-    #staff {
-      background: var(--bg-alt);
-    }
-
-    .staff-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-      margin-top: 56px;
-    }
-
-    .staff-card {
-      padding: 52px 40px;
-      border-right: 1px solid var(--border);
-      transition: background 0.3s;
-    }
+    #staff { background: var(--bg-alt); }
+    .staff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); margin-top: 56px; }
+    .staff-card { padding: 52px 40px; border-right: 1px solid var(--border); transition: background 0.3s; }
     .staff-card:last-child { border-right: none; }
     .staff-card:hover { background: var(--white); }
-
-    .staff-badge {
-      display: inline-block;
-      font-size: 9px;
-      letter-spacing: 0.32em;
-      color: var(--gold);
-      border: 1px solid var(--gold-light);
-      padding: 4px 12px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .staff-name {
-      font-family: var(--serif-en);
-      font-size: 36px;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      color: var(--dark);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .staff-name-jp {
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.2em;
-      margin-bottom: 6px;
-    }
-
-    .staff-career {
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.15em;
-      margin-bottom: 20px;
-    }
-
-    .staff-bar {
-      width: 28px;
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 20px;
-    }
-
-    .staff-msg {
-      font-size: 13.5px;
-      line-height: 1.9;
-      color: var(--mid);
-      font-weight: 300;
-      font-style: italic;
-    }
+    .staff-badge { display: inline-block; font-size: 9px; letter-spacing: 0.32em; color: var(--gold); border: 1px solid var(--gold-light); padding: 4px 12px; text-transform: uppercase; margin-bottom: 20px; }
+    .staff-name { font-family: var(--serif-en); font-size: 36px; font-weight: 300; letter-spacing: 0.12em; color: var(--dark); line-height: 1; margin-bottom: 4px; }
+    .staff-name-jp { font-size: 12px; color: var(--muted); letter-spacing: 0.2em; margin-bottom: 6px; }
+    .staff-career { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 20px; }
+    .staff-bar { width: 28px; height: 1px; background: var(--border); margin-bottom: 20px; }
+    .staff-msg { font-size: 13.5px; line-height: 1.9; color: var(--mid); font-weight: 300; font-style: italic; }
 
     /* ================================
        ACCESS
     ================================ */
-    #access {
-      background: var(--white);
+    #access { background: var(--white); }
+    .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .access-map { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-alt); }
+    .access-map iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(20%); }
+    .access-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .access-table tr { border-bottom: 1px solid var(--border); }
+    .access-table tr:last-child { border-bottom: none; }
+    .access-table th { font-size: 10px; letter-spacing: 0.28em; color: var(--gold); font-weight: 400; text-align: left; padding: 18px 0; width: 28%; vertical-align: top; }
+    .access-table td { font-size: 14px; color: var(--mid); padding: 18px 0; line-height: 1.75; font-weight: 300; }
+    .access-table td a { color: var(--gold); transition: opacity 0.3s; }
+    .access-table td a:hover { opacity: 0.75; }
+    .parking-tag { display: inline-block; margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; color: var(--gold); border: 1px solid var(--gold-light); padding: 3px 10px; }
+
+    /* ================================
+       RESERVATION FORM
+    ================================ */
+    #reserve {
+      background: var(--bg);
     }
 
-    .access-grid {
+    .reserve-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 80px;
       align-items: start;
     }
 
-    .access-map {
-      width: 100%;
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      background: var(--bg-alt);
-    }
-    .access-map iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-      filter: grayscale(20%);
+    .reserve-info h3 {
+      font-family: var(--serif-jp);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 2;
+      margin-bottom: 32px;
     }
 
-    .access-table {
+    .reserve-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .reserve-contact-item .icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .reserve-contact-item .icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .reserve-contact-item .detail {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .reserve-contact-item .detail strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+    .reserve-contact-item .detail a {
+      color: var(--dark);
+      transition: color 0.3s;
+    }
+    .reserve-contact-item .detail a:hover { color: var(--gold); }
+
+    .reserve-note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      background: var(--gold-pale);
+      border-left: 2px solid var(--gold);
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--mid);
+    }
+
+    /* Form styles */
+    .reserve-form {
+      background: var(--white);
+      padding: 48px 44px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+    }
+
+    .form-row {
+      margin-bottom: 22px;
+    }
+
+    .form-row label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-row label .req {
+      color: #c0392b;
+      margin-left: 4px;
+      font-size: 10px;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
       width: 100%;
-      border-collapse: collapse;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--dark);
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus { border-color: var(--gold); background: var(--white); }
+
+    .form-row textarea { resize: vertical; min-height: 100px; line-height: 1.7; }
+
+    .form-row-half {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-right: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      transform: translateY(-65%) rotate(45deg);
+      pointer-events: none;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      cursor: pointer;
+      transition: background 0.3s;
       margin-top: 8px;
     }
-    .access-table tr { border-bottom: 1px solid var(--border); }
-    .access-table tr:last-child { border-bottom: none; }
+    .form-submit:hover { background: var(--gold-deep); }
+    .form-submit:disabled { background: var(--muted); cursor: not-allowed; }
 
-    .access-table th {
-      font-size: 10px;
-      letter-spacing: 0.28em;
+    /* success / error states */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      font-size: 40px;
       color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .form-success h3 {
+      font-family: var(--serif-jp);
+      font-size: 18px;
       font-weight: 400;
-      text-align: left;
-      padding: 18px 0;
-      width: 28%;
-      vertical-align: top;
+      margin-bottom: 12px;
     }
-
-    .access-table td {
-      font-size: 14px;
-      color: var(--mid);
-      padding: 18px 0;
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .access-table td a {
-      color: var(--gold);
-      transition: opacity 0.3s;
-    }
-    .access-table td a:hover { opacity: 0.75; }
-
-    .parking-tag {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      border: 1px solid var(--gold-light);
-      padding: 3px 10px;
+    .form-success p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.9;
     }
 
     /* ================================
        CTA BANNER
     ================================ */
-    #cta {
-      position: relative;
-      padding: clamp(90px, 14vw, 160px) 40px;
-      text-align: center;
-      overflow: hidden;
-    }
+    #cta { position: relative; padding: clamp(90px,14vw,160px) 40px; text-align: center; overflow: hidden; }
+    .cta-bg { position: absolute; inset: 0; }
+    .cta-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+    .cta-overlay { position: absolute; inset: 0; background: rgba(10,8,5,0.62); }
+    .cta-body { position: relative; z-index: 1; }
+    .cta-label { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.44em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 20px; }
+    .cta-title { font-family: var(--serif-en); font-size: clamp(32px,5vw,60px); font-weight: 300; letter-spacing: 0.15em; color: var(--white); margin-bottom: 18px; }
+    .cta-sub { font-family: var(--serif-jp); font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.72); letter-spacing: 0.25em; margin-bottom: 50px; }
+    .cta-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
 
-    .cta-bg {
-      position: absolute;
-      inset: 0;
-    }
-    .cta-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .cta-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10, 8, 5, 0.62);
-    }
-
-    .cta-body {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-label {
-      font-family: var(--serif-en);
-      font-size: 11px;
-      letter-spacing: 0.44em;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .cta-title {
-      font-family: var(--serif-en);
-      font-size: clamp(32px, 5vw, 60px);
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      color: var(--white);
-      margin-bottom: 18px;
-    }
-
-    .cta-sub {
-      font-family: var(--serif-jp);
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.72);
-      letter-spacing: 0.25em;
-      margin-bottom: 50px;
-    }
-
-    .cta-btns {
-      display: flex;
-      gap: 18px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-gold {
-      display: inline-block;
-      padding: 16px 52px;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      transition: background 0.3s;
-    }
+    .btn-gold { display: inline-block; padding: 16px 52px; background: var(--gold); color: var(--white); font-size: 12px; letter-spacing: 0.22em; transition: background 0.3s; }
     .btn-gold:hover { background: var(--gold-deep); color: var(--white); }
-
-    .btn-line {
-      display: inline-block;
-      padding: 15px 52px;
-      border: 1px solid rgba(255,255,255,0.55);
-      color: var(--white);
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      transition: all 0.3s;
-    }
-    .btn-line:hover { background: rgba(255,255,255,0.12); }
+    .btn-outline-w { display: inline-block; padding: 15px 52px; border: 1px solid rgba(255,255,255,0.55); color: var(--white); font-size: 12px; letter-spacing: 0.22em; transition: all 0.3s; }
+    .btn-outline-w:hover { background: rgba(255,255,255,0.12); }
 
     /* ================================
        FOOTER
     ================================ */
-    footer {
-      background: #111;
-      color: rgba(255,255,255,0.6);
-      padding: 72px 0 32px;
-    }
+    footer { background: #111; color: rgba(255,255,255,0.6); padding: 72px 0 32px; }
+    .footer-inner { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
+    .footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { font-family: var(--serif-en); font-size: 22px; font-weight: 300; letter-spacing: 0.25em; color: var(--white); margin-bottom: 10px; }
+    .footer-tagline { font-family: var(--serif-jp); font-size: 11px; letter-spacing: 0.2em; color: rgba(255,255,255,0.38); margin-bottom: 28px; }
 
-    .footer-inner {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 40px;
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 60px;
-      padding-bottom: 56px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-logo {
-      font-family: var(--serif-en);
-      font-size: 22px;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-
-    .footer-tagline {
-      font-family: var(--serif-jp);
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.38);
-      margin-bottom: 28px;
-    }
-
-    .footer-sns {
-      display: flex;
-      gap: 12px;
-    }
+    .footer-sns { display: flex; gap: 12px; }
     .footer-sns a {
-      width: 38px;
-      height: 38px;
+      width: 42px;
+      height: 42px;
       border: 1px solid rgba(255,255,255,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      letter-spacing: 0;
       color: rgba(255,255,255,0.55);
       transition: all 0.3s;
     }
-    .footer-sns a:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .footer-sns a svg { width: 18px; height: 18px; }
+    .footer-sns a:hover { border-color: var(--gold); color: var(--gold); }
 
-    .footer-col h4 {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 400;
-      margin-bottom: 22px;
-    }
-
+    .footer-col h4 { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 400; margin-bottom: 22px; }
     .footer-nav-list li { margin-bottom: 12px; }
-    .footer-nav-list a {
-      font-size: 13px;
-      color: rgba(255,255,255,0.52);
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
-    }
+    .footer-nav-list a { font-size: 13px; color: rgba(255,255,255,0.52); letter-spacing: 0.1em; transition: color 0.3s; }
     .footer-nav-list a:hover { color: var(--white); }
-
-    .footer-info-list li {
-      font-size: 12px;
-      line-height: 1.9;
-      color: rgba(255,255,255,0.48);
-      margin-bottom: 8px;
-    }
-
-    .footer-bottom {
-      padding-top: 28px;
-      text-align: center;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.22);
-    }
+    .footer-info-list li { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.48); margin-bottom: 8px; }
+    .footer-bottom { padding-top: 28px; text-align: center; font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); }
 
     /* ================================
        FLOAT BUTTON (MOBILE)
     ================================ */
-    #float-btn {
-      display: none;
-      position: fixed;
-      bottom: 22px;
-      right: 20px;
-      z-index: 90;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      padding: 13px 24px;
-      box-shadow: 0 4px 22px rgba(201,160,106,0.45);
-      transition: background 0.3s;
-    }
+    #float-btn { display: none; position: fixed; bottom: 22px; right: 20px; z-index: 90; background: var(--gold); color: var(--white); font-size: 11px; letter-spacing: 0.18em; padding: 13px 24px; box-shadow: 0 4px 22px rgba(201,160,106,0.45); transition: background 0.3s; }
     #float-btn:hover { background: var(--gold-deep); }
 
     /* ================================
@@ -984,48 +664,40 @@
     ================================ */
     @media (max-width: 1024px) {
       .concept-grid { gap: 52px; }
-      .reasons-grid { gap: 2px; }
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-card.featured { grid-column: span 2; }
-      .menu-card.featured .menu-card-inner { aspect-ratio: 16/8; }
+      .ba-slide { flex: 0 0 50%; }
+      .reserve-grid { gap: 48px; }
     }
 
     @media (max-width: 768px) {
       :root { --sp-section: 64px; }
-
       #nav { padding: 18px 24px; }
       #nav.scrolled { padding: 14px 24px; }
       .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .nav-logo { font-size: 17px; }
-
       .hero-body { left: 6%; }
-
       .concept-grid { grid-template-columns: 1fr; gap: 36px; }
       .concept-img-wrap { aspect-ratio: 4/3; }
-
       .reasons-grid { grid-template-columns: 1fr; }
       .reason-card { padding: 40px 28px; }
-
       .menu-grid { grid-template-columns: 1fr; }
       .menu-card.featured { grid-column: span 1; }
       .menu-card.featured .menu-card-inner { aspect-ratio: 4/3; }
       .menu-card:not(.featured) .menu-card-inner { aspect-ratio: 3/2; }
-
       .voice-grid { grid-template-columns: 1fr; }
-
+      .ba-slide { flex: 0 0 100%; }
       .staff-grid { grid-template-columns: 1fr; border: 1px solid var(--border); }
       .staff-card { border-right: none; border-bottom: 1px solid var(--border); }
       .staff-card:last-child { border-bottom: none; }
-
       .access-grid { grid-template-columns: 1fr; gap: 40px; }
-
+      .reserve-grid { grid-template-columns: 1fr; gap: 40px; }
+      .reserve-form { padding: 32px 24px; }
+      .form-row-half { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 36px; }
-
       .cta-btns { flex-direction: column; align-items: center; }
-
       #float-btn { display: block; }
-
       .container { padding: 0 24px; }
     }
   </style>
@@ -1035,17 +707,15 @@
   <!-- ========== NAV ========== -->
   <nav id="nav">
     <a href="#" class="nav-logo">GOLDEN CARE</a>
-
     <ul class="nav-links">
       <li><a href="#concept">About</a></li>
       <li><a href="#menu">Menu</a></li>
+      <li><a href="#result">Result</a></li>
       <li><a href="#voice">Voice</a></li>
       <li><a href="#staff">Staff</a></li>
       <li><a href="#access">Access</a></li>
     </ul>
-
-    <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="nav-cta">RESERVE</a>
-
+    <a href="#reserve" class="nav-cta">RESERVE</a>
     <div class="hamburger" id="ham" onclick="openDrawer()">
       <span></span><span></span><span></span>
     </div>
@@ -1056,51 +726,45 @@
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
     <a href="#concept" onclick="closeDrawer()">About</a>
     <a href="#menu" onclick="closeDrawer()">Menu</a>
+    <a href="#result" onclick="closeDrawer()">Result</a>
     <a href="#voice" onclick="closeDrawer()">Voice</a>
     <a href="#staff" onclick="closeDrawer()">Staff</a>
     <a href="#access" onclick="closeDrawer()">Access</a>
-    <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="drawer-cta">ご予約はこちら</a>
+    <a href="#reserve" onclick="closeDrawer()" class="drawer-cta">ご予約はこちら</a>
   </div>
 
   <!-- ========== HERO ========== -->
   <section id="hero">
-    <div class="hero-bg">
-      <img src="items/IMG_2922.JPG" alt="Golden Care エステサロン">
-    </div>
+    <div class="hero-bg"><img src="items/IMG_2922.JPG" alt="Golden Care エステサロン"></div>
     <div class="hero-overlay"></div>
     <div class="hero-body">
       <p class="hero-sub">Esthetic Salon &nbsp;—&nbsp; Okazaki, Aichi</p>
       <h1 class="hero-title">GOLDEN<br>CARE</h1>
       <p class="hero-tagline">女性のための美を、追求する。</p>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="hero-btn">ご予約はこちら</a>
+      <a href="#reserve" class="hero-btn">ご予約はこちら</a>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
 
   <!-- ========== CONCEPT ========== -->
-  <section id="concept" class="section" style="background: var(--white);">
+  <section id="concept" class="section" style="background:var(--white);">
     <div class="container">
       <div class="concept-grid">
-
         <div class="concept-img-wrap fi">
           <img src="items/IMG_5614.JPG" alt="韓国コルギ施術">
         </div>
-
         <div class="concept-body fi fi-d1">
           <span class="label">About</span>
           <h2 class="heading-en">Concept</h2>
           <p class="heading-jp">ゴールデンケアについて</p>
           <div class="gold-bar"></div>
-
           <p>技術が、あなたの毎日を変える。</p>
           <p>GOLDEN CAREは、愛知県岡崎市にあるプライベートエステサロンです。エステ歴10〜15年のスペシャリストが、お客様一人ひとりのお悩みに寄り添い、本質的な美しさへと導きます。</p>
           <p>韓国発祥の最先端美容技術と熟練した手技を融合させた施術は、「一度で変わった」「毎月通うのが楽しみ」と多くのお客様からご好評をいただいております。</p>
-
           <div class="concept-quote">
             <p>「コルギには絶対の自信があります。<br>ダウンタイムなしで、確かな変化を実感してください。」</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1108,49 +772,42 @@
   <!-- ========== REASONS ========== -->
   <section id="reasons" class="section">
     <div class="container">
-      <div class="reasons-header fi">
+      <div class="fi" style="text-align:center;">
         <span class="label" style="text-align:center; display:block;">Why Golden Care</span>
         <h2 class="heading-en" style="text-align:center;">3 Reasons</h2>
         <p class="heading-jp" style="text-align:center;">選ばれる3つの理由</p>
       </div>
       <div class="reasons-grid">
-
         <div class="reason-card fi fi-d1">
           <div class="reason-num">01</div>
           <div class="reason-icon-bar"></div>
           <h3 class="reason-title">圧倒的な技術力</h3>
           <p class="reason-text">エステ歴10〜15年のスペシャリストが在籍。韓国最新美容技術をベースにした施術は、口コミ評価4.98という実績が物語っています。</p>
         </div>
-
         <div class="reason-card fi fi-d2">
           <div class="reason-num">02</div>
           <div class="reason-icon-bar"></div>
           <h3 class="reason-title">即効性・ダウンタイムなし</h3>
           <p class="reason-text">日韓医師監修のマシンと熟練の手技を組み合わせ、施術当日から実感できる変化をお届け。翌日からそのままお仕事にも戻れます。</p>
         </div>
-
         <div class="reason-card fi fi-d3">
           <div class="reason-num">03</div>
           <div class="reason-icon-bar"></div>
           <h3 class="reason-title">完全プライベート空間</h3>
           <p class="reason-text">アットホームな雰囲気の中、丁寧なカウンセリングを実施。お客様だけの特別な時間を、心ゆくまでお楽しみください。</p>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ========== MENU ========== -->
-  <section id="menu" class="section" style="background: var(--bg-alt); padding-bottom: 0;">
+  <section id="menu" class="section" style="background:var(--bg-alt); padding-bottom:0;">
     <div class="container menu-header fi">
       <span class="label">Treatment</span>
       <h2 class="heading-en">Menu</h2>
       <p class="heading-jp">施術メニュー</p>
     </div>
-
     <div class="menu-grid">
-
-      <!-- 01 コルギ (featured) -->
       <div class="menu-card featured fi">
         <div class="menu-card-inner">
           <img src="items/IMG_3150.JPG" alt="韓国コルギ">
@@ -1158,12 +815,10 @@
             <span class="menu-card-num">01 &nbsp;—&nbsp; SIGNATURE</span>
             <h3 class="menu-card-title">Korean Korgi</h3>
             <p class="menu-card-jp">韓国コルギ / 7Dコルギ</p>
-            <p class="menu-card-desc">当サロンが絶対の自信を持つ看板メニュー。骨格から小顔へアプローチし、一度の施術でフェイスラインの劇的な変化を実感いただけます。ダウンタイムなし。</p>
+            <p class="menu-card-desc">当サロンが絶対の自信を持つ看板メニュー。骨格から小顔へアプローチし、一度の施術でフェイスラインの劇的な変化を実感いただけます。</p>
           </div>
         </div>
       </div>
-
-      <!-- 02 LED -->
       <div class="menu-card fi fi-d1">
         <div class="menu-card-inner">
           <img src="items/IMG_9867.JPG" alt="LEDフォトフェイシャル">
@@ -1171,15 +826,13 @@
             <span class="menu-card-num">02</span>
             <h3 class="menu-card-title">LED Facial</h3>
             <p class="menu-card-jp">LEDフォトフェイシャル</p>
-            <p class="menu-card-desc">光の力で肌の奥から整える次世代ケア。くすみ・エイジングにアプローチします。</p>
+            <p class="menu-card-desc">光の力で肌の奥から整える次世代ケア。くすみ・エイジングにアプローチ。</p>
           </div>
         </div>
       </div>
-
-      <!-- 03 機器施術 -->
-      <div class="menu-card fi fi-d2">
+      <div class="menu-card fi">
         <div class="menu-card-inner">
-          <img src="items/IMG_9848.JPG" alt="ハイドラ / マシン施術">
+          <img src="items/IMG_9848.JPG" alt="ハイドラ / ピーリング">
           <div class="menu-card-body">
             <span class="menu-card-num">03</span>
             <h3 class="menu-card-title">Hydra / Peeling</h3>
@@ -1188,22 +841,18 @@
           </div>
         </div>
       </div>
-
-      <!-- 04 毛穴 -->
-      <div class="menu-card fi">
+      <div class="menu-card fi fi-d1">
         <div class="menu-card-inner">
           <img src="items/IMG_9835.JPG" alt="毛穴エクストラクション">
           <div class="menu-card-body">
             <span class="menu-card-num">04</span>
             <h3 class="menu-card-title">Pore Care</h3>
             <p class="menu-card-jp">毛穴エクストラクション</p>
-            <p class="menu-card-desc">毛穴の奥の汚れを徹底除去。なめらかな素肌へと整えます。</p>
+            <p class="menu-card-desc">毛穴の奥の汚れを徹底除去。なめらかな素肌へ整えます。</p>
           </div>
         </div>
       </div>
-
-      <!-- 05 ヘッド -->
-      <div class="menu-card fi fi-d1">
+      <div class="menu-card fi fi-d2">
         <div class="menu-card-inner">
           <img src="items/IMG_5615.JPG" alt="ドライヘッドマッサージ">
           <div class="menu-card-body">
@@ -1214,20 +863,17 @@
           </div>
         </div>
       </div>
-
     </div>
-
     <div class="menu-more">
       <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold">すべてのメニュー・料金を見る</a>
     </div>
   </section>
 
   <!-- ========== VOICE ========== -->
-  <section id="voice" class="section" style="background: var(--white); text-align: center;">
+  <section id="voice" class="section" style="background:var(--white); text-align:center;">
     <div class="container">
-
       <div class="fi">
-        <span class="label" style="display:block; text-align:center;">Customer Voice</span>
+        <span class="label" style="text-align:center; display:block;">Customer Voice</span>
         <h2 class="heading-en" style="text-align:center;">Voice</h2>
         <p class="heading-jp" style="text-align:center;">お客様の声</p>
         <div class="voice-score-wrap">
@@ -1236,45 +882,76 @@
           <div class="voice-count">総合評価 &nbsp;|&nbsp; 57件のクチコミ（ホットペッパービューティー）</div>
         </div>
       </div>
-
       <div class="voice-grid">
-
         <div class="voice-card fi fi-d1">
           <div class="voice-card-stars">★★★★★</div>
           <p class="voice-card-text">「一度でフェイスラインがスッキリ！帰り道に鏡を見て驚きました。毎月通うのが今からとても楽しみです。」</p>
           <p class="voice-card-meta">30代 女性 / 韓国コルギ</p>
         </div>
-
         <div class="voice-card fi fi-d2">
           <div class="voice-card-stars">★★★★★</div>
           <p class="voice-card-text">「アットホームな雰囲気で、スタッフさんが話しやすくて最高でした。丁寧なカウンセリングで悩みをしっかり聞いてもらえました。」</p>
           <p class="voice-card-meta">20代 女性 / 小顔矯正</p>
         </div>
-
         <div class="voice-card fi fi-d3">
           <div class="voice-card-stars">★★★★★</div>
           <p class="voice-card-text">「隠れ家的な実力派サロン。的確なアドバイスと豊富な美容知識で、施術中も勉強になることがたくさん。また必ず来ます！」</p>
           <p class="voice-card-meta">40代 女性 / 肌管理</p>
         </div>
+      </div>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/review/" target="_blank" class="voice-link">ホットペッパービューティーでクチコミをすべて見る →</a>
+    </div>
+  </section>
 
+  <!-- ========== RESULT / BEFORE-AFTER ========== -->
+  <section id="result" class="section">
+    <div class="container">
+      <div class="fi">
+        <span class="label">Result</span>
+        <h2 class="heading-en" style="color:var(--white);">Before / After</h2>
+        <p class="heading-jp" style="color:rgba(255,255,255,0.45);">施術実績</p>
       </div>
 
-      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/review/" target="_blank" class="voice-link">ホットペッパービューティーでクチコミをすべて見る →</a>
+      <!-- Progression photo -->
+      <div class="result-progress fi fi-d1">
+        <img src="items/IMG_9908.JPG" alt="1回目→6回目→12回目の変化">
+        <p class="result-progress-caption">メスを使わずメディカル整形級 &nbsp;—&nbsp; 1回目 → 6回目 → 12回目の変化</p>
+      </div>
 
+      <!-- Before/After Carousel -->
+      <div class="ba-carousel-wrap fi fi-d2">
+        <div class="ba-track" id="baTrack">
+          <div class="ba-slide"><img src="items/IMG_9909.JPG" alt="Before After 01"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9911.JPG" alt="Before After 02"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9912.JPG" alt="Before After 03"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9913.JPG" alt="Before After 04"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9914.JPG" alt="Before After 05"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9915.JPG" alt="Before After 06"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+          <div class="ba-slide"><img src="items/IMG_9916.JPG" alt="Before After 07"><p class="ba-slide-caption">韓国コルギ / 施術直後</p></div>
+        </div>
+      </div>
+
+      <div class="ba-controls">
+        <button class="ba-arrow" id="baPrev" aria-label="前へ">
+          <svg viewBox="0 0 16 16"><polyline points="10,2 4,8 10,14"/></svg>
+        </button>
+        <div class="ba-dots" id="baDots"></div>
+        <button class="ba-arrow" id="baNext" aria-label="次へ">
+          <svg viewBox="0 0 16 16"><polyline points="6,2 12,8 6,14"/></svg>
+        </button>
+      </div>
     </div>
   </section>
 
   <!-- ========== STAFF ========== -->
-  <section id="staff" class="section" style="background: var(--bg-alt);">
+  <section id="staff" class="section" style="background:var(--bg-alt);">
     <div class="container">
       <div class="fi">
         <span class="label">Our Team</span>
         <h2 class="heading-en">Staff</h2>
         <p class="heading-jp">スタッフ紹介</p>
       </div>
-
       <div class="staff-grid">
-
         <div class="staff-card fi fi-d1">
           <span class="staff-badge">Esthetician</span>
           <h3 class="staff-name">ARI</h3>
@@ -1283,7 +960,6 @@
           <div class="staff-bar"></div>
           <p class="staff-msg">「自信を持って毎日を過ごしませんか？あなたの人生、変えます。」</p>
         </div>
-
         <div class="staff-card fi fi-d2">
           <span class="staff-badge">Therapist</span>
           <h3 class="staff-name">AKI</h3>
@@ -1292,7 +968,6 @@
           <div class="staff-bar"></div>
           <p class="staff-msg">「必ず垢抜けを約束します。早く可愛くなりませんか？」</p>
         </div>
-
         <div class="staff-card fi fi-d3">
           <span class="staff-badge">Esthetician</span>
           <h3 class="staff-name">NOZOMI</h3>
@@ -1301,58 +976,156 @@
           <div class="staff-bar"></div>
           <p class="staff-msg">痩身・小顔専門店出身。小顔矯正・痩身施術を得意とし、お客様のお悩みを根本から解決します。</p>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ========== ACCESS ========== -->
-  <section id="access" class="section" style="background: var(--white);">
+  <section id="access" class="section" style="background:var(--white);">
     <div class="container">
       <div class="access-grid">
-
         <div class="fi">
           <span class="label">Access</span>
           <h2 class="heading-en">Access</h2>
           <p class="heading-jp">アクセス・営業情報</p>
-
           <table class="access-table">
-            <tr>
-              <th>SALON</th>
-              <td>GOLDEN CARE</td>
-            </tr>
-            <tr>
-              <th>ADDRESS</th>
-              <td>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</td>
-            </tr>
-            <tr>
-              <th>HOURS</th>
-              <td>8:00 〜 21:00<br><span style="font-size:12px; color:var(--muted);">定休日なし（年中無休）</span></td>
-            </tr>
-            <tr>
-              <th>ACCESS</th>
-              <td>
-                東岡崎駅より車で約10分<br>
-                岡崎ICより車で約8分<br>
-                県道26号沿い<br>
-                <span class="parking-tag">P 駐車場あり</span>
-              </td>
-            </tr>
-            <tr>
-              <th>TEL</th>
-              <td><a href="tel:09012831567">090-1283-1567</a></td>
-            </tr>
+            <tr><th>SALON</th><td>GOLDEN CARE</td></tr>
+            <tr><th>ADDRESS</th><td>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</td></tr>
+            <tr><th>HOURS</th><td>8:00 〜 21:00<br><span style="font-size:12px;color:var(--muted);">定休日なし（年中無休）</span></td></tr>
+            <tr><th>ACCESS</th><td>東岡崎駅より車で約10分<br>岡崎ICより車で約8分<br>県道26号沿い<br><span class="parking-tag">P 駐車場あり</span></td></tr>
+            <tr><th>TEL</th><td><a href="tel:09012831567">090-1283-1567</a></td></tr>
           </table>
         </div>
-
         <div class="access-map fi fi-d1">
-          <iframe
-            src="https://maps.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%B2%A1%E5%B4%8E%E5%B8%82%E7%A8%B2%E7%86%8A%E7%94%BA8%E4%B8%81%E7%9B%AE213+%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%93%E3%83%AB&output=embed&z=16"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="GOLDEN CARE アクセスマップ">
+          <iframe src="https://maps.google.com/maps?q=%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%B2%A1%E5%B4%8E%E5%B8%82%E7%A8%B2%E7%86%8A%E7%94%BA8%E4%B8%81%E7%9B%AE213+%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88%E3%83%93%E3%83%AB&output=embed&z=16"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="GOLDEN CARE アクセスマップ">
           </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESERVATION FORM ========== -->
+  <section id="reserve" class="section">
+    <div class="container">
+      <div class="fi" style="margin-bottom:56px;">
+        <span class="label">Reservation</span>
+        <h2 class="heading-en">Reserve</h2>
+        <p class="heading-jp">ご予約</p>
+      </div>
+
+      <div class="reserve-grid">
+
+        <!-- Left: info -->
+        <div class="reserve-info fi">
+          <h3>ご希望の日時・メニューをお知らせください。<br>24時間以内にご連絡いたします。</h3>
+
+          <div class="reserve-contact-item">
+            <div class="icon">
+              <!-- Phone icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+              </svg>
+            </div>
+            <div class="detail">
+              電話でのご予約
+              <strong><a href="tel:09012831567">090-1283-1567</a></strong>
+              営業時間内にお気軽にどうぞ
+            </div>
+          </div>
+
+          <div class="reserve-contact-item">
+            <div class="icon">
+              <!-- LINE icon -->
+              <svg viewBox="0 0 24 24" fill="var(--gold)">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+              </svg>
+            </div>
+            <div class="detail">
+              LINE公式アカウント
+              <!-- ▼ LINEのURLが確定したらhrefを差し替えてください -->
+              <strong><a href="#" target="_blank">LINE でメッセージを送る</a></strong>
+              24時間受付
+            </div>
+          </div>
+
+          <div class="reserve-note">
+            ✦ &nbsp;ご予約フォームよりお申し込みいただいた場合、担当者より折り返しご連絡いたします。<br>
+            ✦ &nbsp;ホットペッパービューティーからもご予約いただけます。
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="reserve-form fi fi-d1">
+          <!-- =====================================================
+               Formspree セットアップ手順:
+               1. https://formspree.io で無料アカウントを作成
+               2. 新しいフォームを作成し、メールアドレスを設定
+               3. 発行されたフォームID (例: xpznkoev) をコピー
+               4. 下記の action="https://formspree.io/f/YOUR_FORM_ID" を書き換える
+          ===================================================== -->
+          <form id="reserveForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+            <div class="form-row-half">
+              <div class="form-row">
+                <label>お名前<span class="req">*</span></label>
+                <input type="text" name="name" placeholder="山田 花子" required>
+              </div>
+              <div class="form-row">
+                <label>お電話番号<span class="req">*</span></label>
+                <input type="tel" name="phone" placeholder="090-0000-0000" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>メールアドレス<span class="req">*</span></label>
+              <input type="email" name="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-row">
+              <label>ご希望メニュー<span class="req">*</span></label>
+              <div class="select-wrap">
+                <select name="menu" required>
+                  <option value="" disabled selected>メニューを選択してください</option>
+                  <option>韓国コルギ / 7Dコルギ（小顔矯正）</option>
+                  <option>Vリフトマシン</option>
+                  <option>REVIハーブピーリング</option>
+                  <option>ララピール（水光トリートメント）</option>
+                  <option>ハイドラ</option>
+                  <option>毛穴エクストラクション</option>
+                  <option>ドライヘッドマッサージ / 頭蓋骨矯正</option>
+                  <option>カウンセリング（おまかせ）</option>
+                  <option>その他・相談したい</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-half">
+              <div class="form-row">
+                <label>第1希望日時<span class="req">*</span></label>
+                <input type="text" name="first_choice" placeholder="例：5月3日（土）14:00〜" required>
+              </div>
+              <div class="form-row">
+                <label>第2希望日時</label>
+                <input type="text" name="second_choice" placeholder="例：5月4日（日）午後">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label>その他ご要望・ご質問</label>
+              <textarea name="message" placeholder="気になることやご要望などがあればご記入ください"></textarea>
+            </div>
+
+            <button type="submit" class="form-submit" id="submitBtn">送 信 す る</button>
+
+          </form>
+
+          <!-- Success message -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success-icon">✦</div>
+            <h3>送信が完了しました</h3>
+            <p>お問い合わせありがとうございます。<br>24時間以内に担当者よりご連絡いたします。<br>しばらくお待ちください。</p>
+          </div>
         </div>
 
       </div>
@@ -1361,17 +1134,15 @@
 
   <!-- ========== CTA ========== -->
   <section id="cta">
-    <div class="cta-bg">
-      <img src="items/IMG_9835.JPG" alt="Golden Care">
-    </div>
+    <div class="cta-bg"><img src="items/IMG_9835.JPG" alt="Golden Care"></div>
     <div class="cta-overlay"></div>
     <div class="cta-body fi">
       <p class="cta-label">Reservation</p>
       <h2 class="cta-title">Book a Treatment</h2>
       <p class="cta-sub">あなたの美しさを、今日から始めましょう。</p>
       <div class="cta-btns">
-        <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold">ホットペッパーで予約する</a>
-        <a href="tel:09012831567" class="btn-line">電話で予約する</a>
+        <a href="#reserve" class="btn-gold">HPから予約する</a>
+        <a href="tel:09012831567" class="btn-outline-w">電話で予約する</a>
       </div>
     </div>
   </section>
@@ -1380,14 +1151,25 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
-
         <div>
           <div class="footer-logo">GOLDEN CARE</div>
           <p class="footer-tagline">女性のための美を追求</p>
           <div class="footer-sns">
-            <!-- InstagramとLINEのURLが確定したら差し替えてください -->
-            <a href="#" target="_blank" title="Instagram">IG</a>
-            <a href="#" target="_blank" title="LINE公式アカウント">LINE</a>
+
+            <!-- Instagram ▼ URLが確定したらhrefを差し替えてください -->
+            <a href="#" target="_blank" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            <!-- LINE ▼ URLが確定したらhrefを差し替えてください -->
+            <a href="#" target="_blank" title="LINE公式アカウント">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+              </svg>
+            </a>
+
           </div>
         </div>
 
@@ -1396,9 +1178,11 @@
           <ul class="footer-nav-list">
             <li><a href="#concept">About</a></li>
             <li><a href="#menu">Menu</a></li>
+            <li><a href="#result">Result</a></li>
             <li><a href="#voice">Voice</a></li>
             <li><a href="#staff">Staff</a></li>
             <li><a href="#access">Access</a></li>
+            <li><a href="#reserve">ご予約</a></li>
           </ul>
         </div>
 
@@ -1410,7 +1194,6 @@
             <li>営業時間: 8:00〜21:00<br>年中無休</li>
           </ul>
         </div>
-
       </div>
       <div class="footer-bottom">
         <p>© 2025 GOLDEN CARE All Rights Reserved.</p>
@@ -1419,7 +1202,7 @@
   </footer>
 
   <!-- Float Button (Mobile) -->
-  <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" id="float-btn">ご予約はこちら</a>
+  <a href="#reserve" id="float-btn">ご予約はこちら</a>
 
   <!-- ========== JS ========== -->
   <script>
@@ -1429,12 +1212,11 @@
       nav.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    /* -- Fade-in on scroll -- */
-    const fiEls = document.querySelectorAll('.fi');
+    /* -- Fade-in -- */
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-    }, { threshold: 0.12 });
-    fiEls.forEach(el => io.observe(el));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => io.observe(el));
 
     /* -- Mobile drawer -- */
     function openDrawer() {
@@ -1445,6 +1227,104 @@
       document.getElementById('drawer').classList.remove('open');
       document.body.style.overflow = '';
     }
+
+    /* -- Before/After Carousel -- */
+    (function() {
+      const track   = document.getElementById('baTrack');
+      const slides  = track.querySelectorAll('.ba-slide');
+      const dotsWrap = document.getElementById('baDots');
+      const total   = slides.length;
+
+      // How many visible at once
+      function perView() {
+        return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+      }
+
+      let current = 0;
+      let pv = perView();
+      const maxIdx = total - pv;
+
+      // Build dots
+      for (let i = 0; i <= maxIdx; i++) {
+        const d = document.createElement('button');
+        d.className = 'ba-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', `スライド${i+1}`);
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      }
+
+      function goTo(idx) {
+        pv = perView();
+        const maxI = total - pv;
+        current = Math.max(0, Math.min(idx, maxI));
+        const pct = (100 / pv) * current;
+        track.style.transform = `translateX(-${pct}%)`;
+        dotsWrap.querySelectorAll('.ba-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      document.getElementById('baPrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('baNext').addEventListener('click', () => goTo(current + 1));
+
+      // Auto-advance every 4s
+      let timer = setInterval(() => {
+        pv = perView();
+        goTo(current + 1 > total - pv ? 0 : current + 1);
+      }, 4000);
+
+      // Rebuild on resize
+      window.addEventListener('resize', () => {
+        clearInterval(timer);
+        current = 0;
+        goTo(0);
+        // Rebuild dots
+        dotsWrap.innerHTML = '';
+        pv = perView();
+        const newMax = total - pv;
+        for (let i = 0; i <= newMax; i++) {
+          const d = document.createElement('button');
+          d.className = 'ba-dot' + (i === 0 ? ' active' : '');
+          d.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(d);
+        }
+        timer = setInterval(() => {
+          pv = perView();
+          goTo(current + 1 > total - pv ? 0 : current + 1);
+        }, 4000);
+      });
+    })();
+
+    /* -- Reservation Form (Formspree AJAX) -- */
+    (function() {
+      const form    = document.getElementById('reserveForm');
+      const success = document.getElementById('formSuccess');
+      const btn     = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            success.classList.add('show');
+          } else {
+            throw new Error();
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = '送 信 す る';
+          alert('送信に失敗しました。お電話またはLINEよりご連絡ください。\nTEL: 090-1283-1567');
+        }
+      });
+    })();
   </script>
 
 </body>
