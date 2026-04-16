@@ -28,6 +28,7 @@
       --muted:       #888888;
       --border:      #E5D9C6;
       --white:       #FFFFFF;
+      --line-green:  #06C755;
 
       --serif-en:  'Cormorant Garamond', 'Times New Roman', serif;
       --serif-jp:  'Noto Serif JP', serif;
@@ -131,16 +132,27 @@
     #nav.scrolled .nav-links li a { color: var(--mid); }
     .nav-links li a:hover { color: var(--gold); }
 
+    /* Nav LINE CTA */
     .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 7px;
       font-size: 11px;
-      letter-spacing: 0.18em;
-      padding: 9px 22px;
-      border: 1px solid rgba(255,255,255,0.55);
-      color: var(--white);
+      letter-spacing: 0.14em;
+      padding: 9px 20px;
+      background: rgba(6,199,85,0.15);
+      border: 1px solid rgba(6,199,85,0.5);
+      color: rgba(255,255,255,0.9);
       transition: all 0.3s;
+      white-space: nowrap;
     }
-    #nav.scrolled .nav-cta { border-color: var(--gold); color: var(--gold); }
-    .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--white) !important; }
+    .nav-cta svg { width: 14px; height: 14px; flex-shrink: 0; }
+    #nav.scrolled .nav-cta {
+      background: rgba(6,199,85,0.1);
+      border-color: var(--line-green);
+      color: #059944;
+    }
+    .nav-cta:hover { background: var(--line-green); border-color: var(--line-green); color: var(--white) !important; }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 22px; height: 1px; background: var(--white); transition: background 0.4s; }
@@ -162,7 +174,19 @@
     .drawer-close { position: absolute; top: 24px; right: 28px; background: none; border: none; font-size: 26px; color: var(--dark); cursor: pointer; }
     #drawer a { font-family: var(--serif-en); font-size: 26px; font-weight: 300; letter-spacing: 0.2em; color: var(--dark); transition: color 0.3s; }
     #drawer a:hover { color: var(--gold); }
-    .drawer-cta { margin-top: 8px; font-size: 13px !important; color: var(--gold) !important; border-bottom: 1px solid var(--gold-light); padding-bottom: 2px; }
+    .drawer-cta {
+      margin-top: 8px;
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px !important;
+      color: var(--white) !important;
+      background: var(--line-green) !important;
+      padding: 12px 32px;
+      border-radius: 2px;
+      letter-spacing: 0.1em !important;
+    }
+    .drawer-cta svg { width: 18px; height: 18px; }
 
     /* ================================
        HERO
@@ -194,15 +218,19 @@
       margin-bottom: 44px;
     }
     .hero-btn {
-      display: inline-block;
-      padding: 14px 42px;
-      border: 1px solid rgba(255,255,255,0.65);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 15px 36px;
+      background: var(--line-green);
+      border: 1px solid var(--line-green);
       color: var(--white);
-      font-size: 12px;
-      letter-spacing: 0.22em;
+      font-size: 13px;
+      letter-spacing: 0.18em;
       transition: all 0.35s;
     }
-    .hero-btn:hover { background: var(--gold); border-color: var(--gold); }
+    .hero-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .hero-btn:hover { background: #04a648; border-color: #04a648; }
     .hero-scroll {
       position: absolute; bottom: 36px; right: 44px;
       writing-mode: vertical-rl;
@@ -424,187 +452,130 @@
     .parking-tag { display: inline-block; margin-top: 6px; font-size: 10px; letter-spacing: 0.1em; color: var(--gold); border: 1px solid var(--gold-light); padding: 3px 10px; }
 
     /* ================================
-       RESERVATION FORM
+       RESERVATION (LINE-first, no form)
     ================================ */
-    #reserve {
-      background: var(--bg);
-    }
+    #reserve { background: var(--bg); }
 
-    .reserve-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 80px;
-      align-items: start;
+    /* Primary LINE block */
+    .reserve-line-main {
+      max-width: 760px;
+      margin: 0 auto 52px;
+      display: flex;
+      align-items: stretch;
+      background: var(--white);
+      box-shadow: 0 6px 48px rgba(0,0,0,0.08);
+      overflow: hidden;
     }
-
-    .reserve-info h3 {
-      font-family: var(--serif-jp);
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--dark);
-      line-height: 2;
-      margin-bottom: 32px;
+    .reserve-line-stripe {
+      width: 6px;
+      background: var(--line-green);
+      flex-shrink: 0;
     }
-
-    .reserve-contact-item {
+    .reserve-line-body {
+      padding: 48px 52px;
+      flex: 1;
+    }
+    .reserve-line-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--line-green);
+      text-transform: uppercase;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
+      gap: 8px;
+    }
+    .reserve-line-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--line-green);
+    }
+    .reserve-line-title {
+      font-family: var(--serif-jp);
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .reserve-line-sub {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .reserve-line-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--line-green);
+      color: var(--white);
+      padding: 16px 40px;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      transition: background 0.3s;
+      margin-bottom: 18px;
+    }
+    .reserve-line-cta svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .reserve-line-cta:hover { background: #04a648; color: var(--white); }
+    .reserve-line-id {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+    }
+    .reserve-line-id span {
+      color: var(--dark);
+      font-weight: 500;
     }
 
-    .reserve-contact-item .icon {
+    /* Secondary options */
+    .reserve-secondary {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .reserve-sub-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    .reserve-sub-item:hover { border-color: var(--gold); }
+    .reserve-sub-icon {
       width: 44px;
       height: 44px;
       border: 1px solid var(--border);
-      background: var(--white);
+      background: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .reserve-contact-item .icon svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .reserve-contact-item .detail {
+    .reserve-sub-icon svg { width: 20px; height: 20px; }
+    .reserve-sub-detail {
       font-size: 11px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.7;
     }
-    .reserve-contact-item .detail strong {
+    .reserve-sub-detail strong {
       display: block;
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--dark);
-      letter-spacing: 0.05em;
-    }
-    .reserve-contact-item .detail a {
-      color: var(--dark);
-      transition: color 0.3s;
-    }
-    .reserve-contact-item .detail a:hover { color: var(--gold); }
-
-    .reserve-note {
-      margin-top: 28px;
-      padding: 18px 20px;
-      background: var(--gold-pale);
-      border-left: 2px solid var(--gold);
-      font-size: 12px;
-      line-height: 1.9;
-      color: var(--mid);
-    }
-
-    /* Form styles */
-    .reserve-form {
-      background: var(--white);
-      padding: 48px 44px;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.06);
-    }
-
-    .form-row {
-      margin-bottom: 22px;
-    }
-
-    .form-row label {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .form-row label .req {
-      color: #c0392b;
-      margin-left: 4px;
-      font-size: 10px;
-    }
-
-    .form-row input,
-    .form-row select,
-    .form-row textarea {
-      width: 100%;
-      padding: 13px 16px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      font-family: var(--sans);
       font-size: 14px;
-      color: var(--dark);
-      font-weight: 300;
-      outline: none;
-      transition: border-color 0.3s;
-      appearance: none;
-      -webkit-appearance: none;
-      border-radius: 0;
-    }
-    .form-row input:focus,
-    .form-row select:focus,
-    .form-row textarea:focus { border-color: var(--gold); background: var(--white); }
-
-    .form-row textarea { resize: vertical; min-height: 100px; line-height: 1.7; }
-
-    .form-row-half {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .select-wrap { position: relative; }
-    .select-wrap::after {
-      content: '';
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 8px;
-      height: 8px;
-      border-right: 1px solid var(--gold);
-      border-bottom: 1px solid var(--gold);
-      transform: translateY(-65%) rotate(45deg);
-      pointer-events: none;
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 16px;
-      background: var(--gold);
-      color: var(--white);
-      border: none;
-      font-family: var(--sans);
-      font-size: 13px;
-      letter-spacing: 0.25em;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 8px;
-    }
-    .form-submit:hover { background: var(--gold-deep); }
-    .form-submit:disabled { background: var(--muted); cursor: not-allowed; }
-
-    /* success / error states */
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 48px 24px;
-    }
-    .form-success.show { display: block; }
-    .form-success-icon {
-      font-size: 40px;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .form-success h3 {
-      font-family: var(--serif-jp);
-      font-size: 18px;
       font-weight: 400;
-      margin-bottom: 12px;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      margin-bottom: 2px;
     }
-    .form-success p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
+    .reserve-sub-detail a { color: var(--dark); transition: color 0.3s; }
+    .reserve-sub-detail a:hover { color: var(--gold); }
 
     /* ================================
        CTA BANNER
@@ -619,15 +590,27 @@
     .cta-sub { font-family: var(--serif-jp); font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.72); letter-spacing: 0.25em; margin-bottom: 50px; }
     .cta-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
 
-    .btn-gold { display: inline-block; padding: 16px 52px; background: var(--gold); color: var(--white); font-size: 12px; letter-spacing: 0.22em; transition: background 0.3s; }
-    .btn-gold:hover { background: var(--gold-deep); color: var(--white); }
-    .btn-outline-w { display: inline-block; padding: 15px 52px; border: 1px solid rgba(255,255,255,0.55); color: var(--white); font-size: 12px; letter-spacing: 0.22em; transition: all 0.3s; }
+    .btn-line-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 48px;
+      background: var(--line-green);
+      color: var(--white);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      transition: background 0.3s;
+    }
+    .btn-line-cta svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-line-cta:hover { background: #04a648; color: var(--white); }
+
+    .btn-outline-w { display: inline-block; padding: 15px 42px; border: 1px solid rgba(255,255,255,0.55); color: var(--white); font-size: 12px; letter-spacing: 0.22em; transition: all 0.3s; }
     .btn-outline-w:hover { background: rgba(255,255,255,0.12); }
 
     /* ================================
        FOOTER
     ================================ */
-    footer { background: #111; color: rgba(255,255,255,0.6); padding: 72px 0 32px; }
+    footer { background: #111; color: rgba(255,255,255,0.6); padding: 72px 0 0; }
     .footer-inner { max-width: var(--container); margin: 0 auto; padding: 0 40px; }
     .footer-top { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08); }
     .footer-logo { font-family: var(--serif-en); font-size: 22px; font-weight: 300; letter-spacing: 0.25em; color: var(--white); margin-bottom: 10px; }
@@ -652,13 +635,91 @@
     .footer-nav-list a { font-size: 13px; color: rgba(255,255,255,0.52); letter-spacing: 0.1em; transition: color 0.3s; }
     .footer-nav-list a:hover { color: var(--white); }
     .footer-info-list li { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.48); margin-bottom: 8px; }
-    .footer-bottom { padding-top: 28px; text-align: center; font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.22); }
+
+    /* Slide Nova credit bar */
+    .footer-credit {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copyright {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.22);
+    }
+    .slide-nova-credit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      opacity: 0.38;
+      transition: opacity 0.3s;
+    }
+    .slide-nova-credit:hover { opacity: 0.7; }
+    .slide-nova-logo {
+      font-family: var(--serif-en);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .slide-nova-logo span {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+      font-family: var(--sans);
+      font-weight: 300;
+    }
+    .slide-nova-sep {
+      width: 1px;
+      height: 24px;
+      background: rgba(255,255,255,0.15);
+    }
+    .slide-nova-tag {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.4);
+      font-family: var(--sans);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
 
     /* ================================
-       FLOAT BUTTON (MOBILE)
+       FLOATING LINE BUTTON
     ================================ */
-    #float-btn { display: none; position: fixed; bottom: 22px; right: 20px; z-index: 90; background: var(--gold); color: var(--white); font-size: 11px; letter-spacing: 0.18em; padding: 13px 24px; box-shadow: 0 4px 22px rgba(201,160,106,0.45); transition: background 0.3s; }
-    #float-btn:hover { background: var(--gold-deep); }
+    #float-line {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 90;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--line-green);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      padding: 13px 24px;
+      box-shadow: 0 6px 28px rgba(6,199,85,0.4);
+      transition: background 0.3s, opacity 0.4s, transform 0.4s;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+    #float-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #float-line:hover { background: #04a648; color: var(--white); }
+    #float-line svg { width: 17px; height: 17px; flex-shrink: 0; }
 
     /* ================================
        RESPONSIVE
@@ -667,8 +728,8 @@
       .concept-grid { gap: 52px; }
       .menu-grid { grid-template-columns: repeat(2, 1fr); }
       .menu-card.featured { grid-column: span 2; }
+      .menu-card.featured .menu-card-inner { aspect-ratio: 16/9; }
       .ba-slide { flex: 0 0 50%; }
-      .reserve-grid { gap: 48px; }
     }
 
     @media (max-width: 768px) {
@@ -693,13 +754,13 @@
       .staff-card { border-right: none; border-bottom: 1px solid var(--border); }
       .staff-card:last-child { border-bottom: none; }
       .access-grid { grid-template-columns: 1fr; gap: 40px; }
-      .reserve-grid { grid-template-columns: 1fr; gap: 40px; }
-      .reserve-form { padding: 32px 24px; }
-      .form-row-half { grid-template-columns: 1fr; }
+      .reserve-line-body { padding: 32px 28px; }
+      .reserve-secondary { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .footer-credit { flex-direction: column; align-items: flex-start; gap: 16px; }
       .cta-btns { flex-direction: column; align-items: center; }
-      #float-btn { display: block; }
       .container { padding: 0 24px; }
+      #float-line { bottom: 20px; right: 16px; padding: 12px 18px; font-size: 11px; }
     }
   </style>
 </head>
@@ -716,7 +777,10 @@
       <li><a href="#staff">Staff</a></li>
       <li><a href="#access">Access</a></li>
     </ul>
-    <a href="#reserve" class="nav-cta">RESERVE</a>
+    <a href="https://lin.ee/529zwesf" target="_blank" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINE で予約
+    </a>
     <div class="hamburger" id="ham" onclick="openDrawer()">
       <span></span><span></span><span></span>
     </div>
@@ -731,7 +795,10 @@
     <a href="#voice" onclick="closeDrawer()">Voice</a>
     <a href="#staff" onclick="closeDrawer()">Staff</a>
     <a href="#access" onclick="closeDrawer()">Access</a>
-    <a href="#reserve" onclick="closeDrawer()" class="drawer-cta">ご予約はこちら</a>
+    <a href="https://lin.ee/529zwesf" target="_blank" onclick="closeDrawer()" class="drawer-cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINE で予約する
+    </a>
   </div>
 
   <!-- ========== HERO ========== -->
@@ -742,7 +809,10 @@
       <p class="hero-sub">Esthetic Salon &nbsp;—&nbsp; Okazaki, Aichi</p>
       <h1 class="hero-title">GOLDEN<br>CARE</h1>
       <p class="hero-tagline">女性のための美を、追求する。</p>
-      <a href="#reserve" class="hero-btn">ご予約はこちら</a>
+      <a href="https://lin.ee/529zwesf" target="_blank" class="hero-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEでご予約はこちら
+      </a>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
@@ -881,7 +951,7 @@
       </div>
     </div>
     <div class="menu-more">
-      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold">すべてのメニュー・料金を見る</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000647446/" target="_blank" class="btn-gold" style="display:inline-block;padding:16px 52px;background:var(--gold);color:var(--white);font-size:12px;letter-spacing:0.22em;transition:background 0.3s;">すべてのメニュー・料金を見る</a>
     </div>
   </section>
 
@@ -1024,146 +1094,59 @@
     </div>
   </section>
 
-  <!-- ========== RESERVATION FORM ========== -->
+  <!-- ========== RESERVATION ========== -->
   <section id="reserve" class="section">
     <div class="container">
-      <div class="fi" style="margin-bottom:56px;">
-        <span class="label">Reservation</span>
-        <h2 class="heading-en">Reserve</h2>
-        <p class="heading-jp">ご予約</p>
+      <div class="fi" style="text-align:center; margin-bottom:56px;">
+        <span class="label" style="display:block; text-align:center;">Reservation</span>
+        <h2 class="heading-en" style="text-align:center;">Reserve</h2>
+        <p class="heading-jp" style="text-align:center;">ご予約</p>
       </div>
 
-      <div class="reserve-grid">
-
-        <!-- Left: info -->
-        <div class="reserve-info fi">
-          <h3>ご希望の日時・メニューをお知らせください。<br>24時間以内にご連絡いたします。</h3>
-
-          <!-- ① LINE（推奨） -->
-          <div class="reserve-contact-item">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="var(--gold)">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-              </svg>
-            </div>
-            <div class="detail">
-              ① LINE公式アカウント（最優先・24時間受付）
-              <!-- ▼ LINE公式アカウントのURLを入れてください（例: https://lin.ee/XXXXXXX） -->
-              <strong><a href="LINE_URL_HERE" target="_blank" id="line-reserve-link">友だち追加してメッセージを送る</a></strong>
-              LINE ID: <span id="line-id-placeholder" style="color:var(--gold);">（後日追加予定）</span>
-            </div>
-          </div>
-
-          <!-- ② Instagram -->
-          <div class="reserve-contact-item">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="var(--gold)">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
-            </div>
-            <div class="detail">
-              ② Instagram DM
-              <!-- ▼ InstagramのURLを入れてください（例: https://www.instagram.com/XXXXXXX/） -->
-              <strong><a href="INSTAGRAM_URL_HERE" target="_blank" id="instagram-reserve-link">DMでご連絡ください</a></strong>
-              @<span id="instagram-id-placeholder" style="color:var(--gold);">（後日追加予定）</span>
-            </div>
-          </div>
-
-          <!-- ③ 電話 -->
-          <div class="reserve-contact-item">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
-              </svg>
-            </div>
-            <div class="detail">
-              ③ お電話でのご予約
-              <strong><a href="tel:09012831567">090-1283-1567</a></strong>
-              営業時間内（8:00〜21:00）にお気軽にどうぞ
-            </div>
-          </div>
-
-          <div class="reserve-note">
-            ✦ &nbsp;LINEが一番スムーズです。お気軽にメッセージください。<br>
-            ✦ &nbsp;フォームからのご予約は24時間以内に担当者よりご連絡します。<br>
-            ✦ &nbsp;ホットペッパービューティーからもご予約いただけます。
-          </div>
+      <!-- Primary: LINE -->
+      <div class="reserve-line-main fi fi-d1">
+        <div class="reserve-line-stripe"></div>
+        <div class="reserve-line-body">
+          <p class="reserve-line-eyebrow">① おすすめ &nbsp;— 公式 LINE</p>
+          <h3 class="reserve-line-title">LINEからのご予約が<br>一番スムーズです</h3>
+          <p class="reserve-line-sub">
+            24時間いつでも受付 &nbsp;·&nbsp; お気軽にメッセージを送るだけ<br>
+            日程・メニュー・ご要望もまとめてご相談いただけます
+          </p>
+          <a href="https://lin.ee/529zwesf" target="_blank" class="reserve-line-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINE で予約する &nbsp;（友だち追加）
+          </a>
+          <p class="reserve-line-id">LINE ID: <span>@529zwesf</span></p>
         </div>
-
-        <!-- Right: form -->
-        <div class="reserve-form fi fi-d1">
-          <!-- =====================================================
-               Formspree セットアップ手順:
-               1. https://formspree.io で無料アカウントを作成
-               2. 新しいフォームを作成し、メールアドレスを設定
-               3. 発行されたフォームID (例: xpznkoev) をコピー
-               4. 下記の action="https://formspree.io/f/YOUR_FORM_ID" を書き換える
-          ===================================================== -->
-          <form id="reserveForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-            <div class="form-row-half">
-              <div class="form-row">
-                <label>お名前<span class="req">*</span></label>
-                <input type="text" name="name" placeholder="山田 花子" required>
-              </div>
-              <div class="form-row">
-                <label>お電話番号<span class="req">*</span></label>
-                <input type="tel" name="phone" placeholder="090-0000-0000" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label>メールアドレス<span class="req">*</span></label>
-              <input type="email" name="email" placeholder="example@email.com" required>
-            </div>
-
-            <div class="form-row">
-              <label>ご希望メニュー<span class="req">*</span></label>
-              <div class="select-wrap">
-                <select name="menu" required>
-                  <option value="" disabled selected>メニューを選択してください</option>
-                  <option>韓国コルギ / 7Dコルギ（小顔矯正）</option>
-                  <option>Vリフトマシン</option>
-                  <option>REVIハーブピーリング</option>
-                  <option>ララピール（水光トリートメント）</option>
-                  <option>ハイドラ</option>
-                  <option>毛穴エクストラクション</option>
-                  <option>ドライヘッドマッサージ / 頭蓋骨矯正</option>
-                  <option>カウンセリング（おまかせ）</option>
-                  <option>その他・相談したい</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row-half">
-              <div class="form-row">
-                <label>第1希望日時<span class="req">*</span></label>
-                <input type="text" name="first_choice" placeholder="例：5月3日（土）14:00〜" required>
-              </div>
-              <div class="form-row">
-                <label>第2希望日時</label>
-                <input type="text" name="second_choice" placeholder="例：5月4日（日）午後">
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label>その他ご要望・ご質問</label>
-              <textarea name="message" placeholder="気になることやご要望などがあればご記入ください"></textarea>
-            </div>
-
-            <button type="submit" class="form-submit" id="submitBtn">送 信 す る</button>
-
-          </form>
-
-          <!-- Success message -->
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon">✦</div>
-            <h3>送信が完了しました</h3>
-            <p>お問い合わせありがとうございます。<br>24時間以内に担当者よりご連絡いたします。<br>しばらくお待ちください。</p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Secondary: IG + Tel -->
+      <div class="reserve-secondary fi fi-d2">
+        <!-- Instagram -->
+        <div class="reserve-sub-item">
+          <div class="reserve-sub-icon">
+            <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="reserve-sub-detail">
+            ② Instagram DM
+            <strong><a href="https://www.instagram.com/kogao_okazaki_goldencare?igsh=bmwxY3QzYWx0Njk1&utm_source=qr" target="_blank">@kogao_okazaki_goldencare</a></strong>
+            DMでお気軽にご連絡ください
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="reserve-sub-item">
+          <div class="reserve-sub-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div class="reserve-sub-detail">
+            ③ お電話でのご予約
+            <strong><a href="tel:09012831567">090-1283-1567</a></strong>
+            営業時間内（8:00〜21:00）
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1176,8 +1159,11 @@
       <h2 class="cta-title">Book a Treatment</h2>
       <p class="cta-sub">あなたの美しさを、今日から始めましょう。</p>
       <div class="cta-btns">
-        <a href="#reserve" class="btn-gold">HPから予約する</a>
-        <a href="tel:09012831567" class="btn-outline-w">電話で予約する</a>
+        <a href="https://lin.ee/529zwesf" target="_blank" class="btn-line-cta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINE でご予約はこちら
+        </a>
+        <a href="https://www.instagram.com/kogao_okazaki_goldencare?igsh=bmwxY3QzYWx0Njk1&utm_source=qr" target="_blank" class="btn-outline-w">Instagram DM</a>
       </div>
     </div>
   </section>
@@ -1190,21 +1176,12 @@
           <div class="footer-logo">GOLDEN CARE</div>
           <p class="footer-tagline">女性のための美を追求</p>
           <div class="footer-sns">
-
-            <!-- Instagram ▼ URLが確定したらhrefを差し替えてください -->
-            <a href="#" target="_blank" title="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
+            <a href="https://www.instagram.com/kogao_okazaki_goldencare?igsh=bmwxY3QzYWx0Njk1&utm_source=qr" target="_blank" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-
-            <!-- LINE ▼ URLが確定したらhrefを差し替えてください -->
-            <a href="#" target="_blank" title="LINE公式アカウント">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
-              </svg>
+            <a href="https://lin.ee/529zwesf" target="_blank" title="LINE公式アカウント">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             </a>
-
           </div>
         </div>
 
@@ -1230,14 +1207,27 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 GOLDEN CARE All Rights Reserved.</p>
+
+      <!-- Credit bar -->
+      <div class="footer-credit">
+        <p class="footer-copyright">© 2025 GOLDEN CARE All Rights Reserved.</p>
+        <a href="https://takki.netlify.app" target="_blank" class="slide-nova-credit" title="Slide Nova — HP制作サービス">
+          <div class="slide-nova-logo">
+            Slide Nova
+            <span>Web Production Service</span>
+          </div>
+          <div class="slide-nova-sep"></div>
+          <p class="slide-nova-tag">Powered by<br>Slide Nova</p>
+        </a>
       </div>
     </div>
   </footer>
 
-  <!-- Float Button (Mobile) -->
-  <a href="#reserve" id="float-btn">ご予約はこちら</a>
+  <!-- Floating LINE Button -->
+  <a href="https://lin.ee/529zwesf" target="_blank" id="float-line">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    LINE で予約
+  </a>
 
   <!-- ========== JS ========== -->
   <script>
@@ -1252,6 +1242,12 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+    /* -- Floating LINE button: show after scrolling past hero -- */
+    const floatLine = document.getElementById('float-line');
+    window.addEventListener('scroll', () => {
+      floatLine.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
+    }, { passive: true });
 
     /* -- Mobile drawer -- */
     function openDrawer() {
@@ -1270,7 +1266,6 @@
       const dotsWrap = document.getElementById('baDots');
       const total   = slides.length;
 
-      // How many visible at once
       function perView() {
         return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
       }
@@ -1279,7 +1274,6 @@
       let pv = perView();
       const maxIdx = total - pv;
 
-      // Build dots
       for (let i = 0; i <= maxIdx; i++) {
         const d = document.createElement('button');
         d.className = 'ba-dot' + (i === 0 ? ' active' : '');
@@ -1302,18 +1296,15 @@
       document.getElementById('baPrev').addEventListener('click', () => goTo(current - 1));
       document.getElementById('baNext').addEventListener('click', () => goTo(current + 1));
 
-      // Auto-advance every 4s
       let timer = setInterval(() => {
         pv = perView();
         goTo(current + 1 > total - pv ? 0 : current + 1);
       }, 4000);
 
-      // Rebuild on resize
       window.addEventListener('resize', () => {
         clearInterval(timer);
         current = 0;
         goTo(0);
-        // Rebuild dots
         dotsWrap.innerHTML = '';
         pv = perView();
         const newMax = total - pv;
@@ -1327,37 +1318,6 @@
           pv = perView();
           goTo(current + 1 > total - pv ? 0 : current + 1);
         }, 4000);
-      });
-    })();
-
-    /* -- Reservation Form (Formspree AJAX) -- */
-    (function() {
-      const form    = document.getElementById('reserveForm');
-      const success = document.getElementById('formSuccess');
-      const btn     = document.getElementById('submitBtn');
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        btn.disabled = true;
-        btn.textContent = '送信中…';
-
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-          if (res.ok) {
-            form.style.display = 'none';
-            success.classList.add('show');
-          } else {
-            throw new Error();
-          }
-        } catch {
-          btn.disabled = false;
-          btn.textContent = '送 信 す る';
-          alert('送信に失敗しました。お電話またはLINEよりご連絡ください。\nTEL: 090-1283-1567');
-        }
       });
     })();
   </script>
