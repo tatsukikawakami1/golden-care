@@ -638,13 +638,13 @@
 
     /* Slide Nova credit bar */
     .footer-credit {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 32px 0 28px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 44px 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
     }
     .footer-copyright {
       font-size: 10px;
@@ -654,38 +654,38 @@
     .slide-nova-credit {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 20px;
       text-decoration: none;
+      opacity: 0.6;
       transition: opacity 0.3s;
     }
-    .slide-nova-credit:hover { opacity: 0.85; }
-    .slide-nova-credit-label {
+    .slide-nova-credit:hover { opacity: 1; }
+    .slide-nova-credit-text {
       font-size: 9px;
-      letter-spacing: 0.28em;
-      color: rgba(255,255,255,0.35);
+      font-weight: 400;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
       font-family: var(--sans);
-      font-weight: 300;
       white-space: nowrap;
     }
     .slide-nova-sep {
       width: 1px;
-      height: 32px;
-      background: rgba(255,255,255,0.12);
+      height: 44px;
+      background: rgba(255,255,255,0.15);
       flex-shrink: 0;
     }
     .slide-nova-img {
-      height: 36px;
+      height: 48px;
       width: auto;
       display: block;
-      /* Logo has white bg → invert to dark + tint */
-      filter: invert(1) brightness(0.7) sepia(0.2);
-      opacity: 0.7;
-      transition: opacity 0.3s, filter 0.3s;
+      background: var(--white);
+      padding: 6px 12px;
+      opacity: 0.88;
+      transition: opacity 0.3s;
     }
     .slide-nova-credit:hover .slide-nova-img {
       opacity: 1;
-      filter: invert(1) brightness(0.85) sepia(0.1);
     }
 
     /* ================================
@@ -1209,7 +1209,7 @@
       <div class="footer-credit">
         <p class="footer-copyright">© 2025 GOLDEN CARE All Rights Reserved.</p>
         <a href="https://takki.netlify.app" target="_blank" class="slide-nova-credit" title="Slide Nova — HP制作サービス">
-          <span class="slide-nova-credit-label">このHPは<br>Slide Novaで制作</span>
+          <span class="slide-nova-credit-text">Web Design &amp; Technology</span>
           <div class="slide-nova-sep"></div>
           <img src="items/slide-nova-logo.png" alt="Slide Nova" class="slide-nova-img">
         </a>
