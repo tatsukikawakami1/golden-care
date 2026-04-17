@@ -666,12 +666,14 @@
     /* Slide Nova credit bar */
     .footer-credit {
       border-top: 1px solid rgba(255,255,255,0.1);
-      padding: 44px 0 40px;
+      padding: 44px 0 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 24px;
+      overflow: visible;
+      position: relative;
     }
     .footer-copyright {
       font-size: 10px;
@@ -683,36 +685,40 @@
       align-items: center;
       gap: 20px;
       text-decoration: none;
-      opacity: 0.6;
+      opacity: 0.78;
       transition: opacity 0.3s;
     }
     .slide-nova-credit:hover { opacity: 1; }
     .slide-nova-credit-text {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 400;
-      letter-spacing: 0.35em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.7);
       font-family: var(--sans);
       white-space: nowrap;
     }
     .slide-nova-sep {
       width: 1px;
-      height: 44px;
-      background: rgba(255,255,255,0.15);
+      height: 52px;
+      background: rgba(255,255,255,0.2);
       flex-shrink: 0;
     }
     .slide-nova-img {
-      height: 48px;
+      height: 64px;
       width: auto;
       display: block;
       background: var(--white);
-      padding: 6px 12px;
-      opacity: 0.88;
-      transition: opacity 0.3s;
+      padding: 7px 14px;
+      opacity: 1;
+      transform-origin: bottom right;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
     }
     .slide-nova-credit:hover .slide-nova-img {
+      transform: scale(3);
       opacity: 1;
+      position: relative;
+      z-index: 50;
     }
 
     /* ================================
@@ -802,7 +808,7 @@
       <li><a href="#staff">Staff</a></li>
       <li><a href="#access">Access</a></li>
     </ul>
-    <a href="https://lin.ee/z3lnfpY" target="_blank" class="nav-cta">
+    <a href="https://lin.ee/Xj4Zcx7" target="_blank" class="nav-cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       LINE で予約
     </a>
@@ -820,7 +826,7 @@
     <a href="#voice" onclick="closeDrawer()">Voice</a>
     <a href="#staff" onclick="closeDrawer()">Staff</a>
     <a href="#access" onclick="closeDrawer()">Access</a>
-    <a href="https://lin.ee/z3lnfpY" target="_blank" onclick="closeDrawer()" class="drawer-cta">
+    <a href="https://lin.ee/Xj4Zcx7" target="_blank" onclick="closeDrawer()" class="drawer-cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       LINE で予約する
     </a>
@@ -834,7 +840,7 @@
       <p class="hero-sub">Esthetic Salon &nbsp;—&nbsp; Okazaki, Aichi</p>
       <h1 class="hero-title">GOLDEN<br>CARE</h1>
       <p class="hero-tagline">女性のための美を、追求する。</p>
-      <a href="https://lin.ee/z3lnfpY" target="_blank" class="hero-btn">
+      <a href="https://lin.ee/Xj4Zcx7" target="_blank" class="hero-btn">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEでご予約はこちら
       </a>
@@ -1037,9 +1043,9 @@
           <div class="voice-slide">
             <div class="voice-card">
               <div class="voice-card-stars">★★★★★</div>
-              <p class="voice-card-text">「頭皮のコリがひどくて、肩こりと顔のむくみに長年悩んでいました。ドライヘッドマッサージを受けたら施術後にスッと顔が軽くなって感動！定期的に通いたいと思います。」</p>
-              <p class="voice-card-name">中村 あかね さん（38歳）</p>
-              <p class="voice-card-treatment">ドライヘッドマッサージ / 頭蓋骨矯正</p>
+              <p class="voice-card-text">「ニキビ跡のくすみが気になりハーブピーリングを受けました。施術直後から肌が明るくなるのを実感！数回通ううちに肌のトーンが格段に上がって、友達にも『肌きれいになった？』と言われました。」</p>
+              <p class="voice-card-name">中村 あかね さん（28歳）</p>
+              <p class="voice-card-treatment">REVIハーブピーリング ＋ 肌管理</p>
             </div>
           </div>
 
@@ -1181,7 +1187,7 @@
             24時間いつでも受付 &nbsp;·&nbsp; お気軽にメッセージを送るだけ<br>
             日程・メニュー・ご要望もまとめてご相談いただけます
           </p>
-          <a href="https://lin.ee/z3lnfpY" target="_blank" class="reserve-line-cta">
+          <a href="https://lin.ee/Xj4Zcx7" target="_blank" class="reserve-line-cta">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             LINE で予約する &nbsp;（友だち追加）
           </a>
@@ -1227,7 +1233,7 @@
       <h2 class="cta-title">Book a Treatment</h2>
       <p class="cta-sub">あなたの美しさを、今日から始めましょう。</p>
       <div class="cta-btns">
-        <a href="https://lin.ee/z3lnfpY" target="_blank" class="btn-line-cta">
+        <a href="https://lin.ee/Xj4Zcx7" target="_blank" class="btn-line-cta">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
           LINE でご予約はこちら
         </a>
@@ -1247,7 +1253,7 @@
             <a href="https://www.instagram.com/kogao_okazaki_goldencare?igsh=bmwxY3QzYWx0Njk1&utm_source=qr" target="_blank" title="Instagram">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://lin.ee/z3lnfpY" target="_blank" title="LINE公式アカウント">
+            <a href="https://lin.ee/Xj4Zcx7" target="_blank" title="LINE公式アカウント">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             </a>
           </div>
@@ -1289,7 +1295,7 @@
   </footer>
 
   <!-- Floating LINE Button -->
-  <a href="https://lin.ee/z3lnfpY" target="_blank" id="float-line">
+  <a href="https://lin.ee/Xj4Zcx7" target="_blank" id="float-line">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     LINE で予約
   </a>
@@ -1330,13 +1336,29 @@
       const dotsWrap = document.getElementById('voiceDots');
       const slides   = track.querySelectorAll('.voice-slide');
       const total    = slides.length;
+      const AUTO_MS  = 6000;
+      const PAUSE_MS = 8000;
 
       function perView() {
         return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
       }
 
-      let current = 0;
-      let pv = perView();
+      let current = 0, pv = perView();
+      let timer = null, pauseTimer = null;
+
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          pv = perView();
+          goTo(current + 1 > total - pv ? 0 : current + 1);
+        }, AUTO_MS);
+      }
+
+      function pauseThenResume() {
+        clearInterval(timer);
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(startAuto, PAUSE_MS);
+      }
 
       function buildDots() {
         dotsWrap.innerHTML = '';
@@ -1345,7 +1367,7 @@
         for (let i = 0; i <= maxI; i++) {
           const d = document.createElement('button');
           d.className = 'voice-dot' + (i === 0 ? ' active' : '');
-          d.addEventListener('click', () => goTo(i));
+          d.addEventListener('click', () => { goTo(i); pauseThenResume(); });
           dotsWrap.appendChild(d);
         }
       }
@@ -1358,87 +1380,78 @@
         dotsWrap.querySelectorAll('.voice-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
-      document.getElementById('voicePrev').addEventListener('click', () => goTo(current - 1));
-      document.getElementById('voiceNext').addEventListener('click', () => goTo(current + 1));
+      document.getElementById('voicePrev').addEventListener('click', () => { goTo(current - 1); pauseThenResume(); });
+      document.getElementById('voiceNext').addEventListener('click', () => { goTo(current + 1); pauseThenResume(); });
 
       buildDots();
-
-      let timer = setInterval(() => {
-        pv = perView();
-        goTo(current + 1 > total - pv ? 0 : current + 1);
-      }, 5000);
+      startAuto();
 
       window.addEventListener('resize', () => {
-        clearInterval(timer);
-        current = 0;
-        buildDots();
-        goTo(0);
-        timer = setInterval(() => {
-          pv = perView();
-          goTo(current + 1 > total - pv ? 0 : current + 1);
-        }, 5000);
+        clearInterval(timer); clearTimeout(pauseTimer);
+        current = 0; buildDots(); goTo(0); startAuto();
       });
     })();
 
     /* -- Before/After Carousel -- */
     (function() {
-      const track   = document.getElementById('baTrack');
-      const slides  = track.querySelectorAll('.ba-slide');
+      const track    = document.getElementById('baTrack');
+      const slides   = track.querySelectorAll('.ba-slide');
       const dotsWrap = document.getElementById('baDots');
-      const total   = slides.length;
+      const total    = slides.length;
+      const AUTO_MS  = 5000;
+      const PAUSE_MS = 8000;
 
       function perView() {
         return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
       }
 
-      let current = 0;
-      let pv = perView();
-      const maxIdx = total - pv;
+      let current = 0, pv = perView();
+      let timer = null, pauseTimer = null;
 
-      for (let i = 0; i <= maxIdx; i++) {
-        const d = document.createElement('button');
-        d.className = 'ba-dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', `スライド${i+1}`);
-        d.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(d);
+      function startAuto() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          pv = perView();
+          goTo(current + 1 > total - pv ? 0 : current + 1);
+        }, AUTO_MS);
+      }
+
+      function pauseThenResume() {
+        clearInterval(timer);
+        clearTimeout(pauseTimer);
+        pauseTimer = setTimeout(startAuto, PAUSE_MS);
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        pv = perView();
+        const maxI = total - pv;
+        for (let i = 0; i <= maxI; i++) {
+          const d = document.createElement('button');
+          d.className = 'ba-dot' + (i === 0 ? ' active' : '');
+          d.setAttribute('aria-label', `スライド${i+1}`);
+          d.addEventListener('click', () => { goTo(i); pauseThenResume(); });
+          dotsWrap.appendChild(d);
+        }
       }
 
       function goTo(idx) {
         pv = perView();
         const maxI = total - pv;
         current = Math.max(0, Math.min(idx, maxI));
-        const pct = (100 / pv) * current;
-        track.style.transform = `translateX(-${pct}%)`;
-        dotsWrap.querySelectorAll('.ba-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === current);
-        });
+        track.style.transform = `translateX(-${(100 / pv) * current}%)`;
+        dotsWrap.querySelectorAll('.ba-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
-      document.getElementById('baPrev').addEventListener('click', () => goTo(current - 1));
-      document.getElementById('baNext').addEventListener('click', () => goTo(current + 1));
+      document.getElementById('baPrev').addEventListener('click', () => { goTo(current - 1); pauseThenResume(); });
+      document.getElementById('baNext').addEventListener('click', () => { goTo(current + 1); pauseThenResume(); });
 
-      let timer = setInterval(() => {
-        pv = perView();
-        goTo(current + 1 > total - pv ? 0 : current + 1);
-      }, 4000);
+      buildDots();
+      startAuto();
 
       window.addEventListener('resize', () => {
-        clearInterval(timer);
-        current = 0;
-        goTo(0);
-        dotsWrap.innerHTML = '';
-        pv = perView();
-        const newMax = total - pv;
-        for (let i = 0; i <= newMax; i++) {
-          const d = document.createElement('button');
-          d.className = 'ba-dot' + (i === 0 ? ' active' : '');
-          d.addEventListener('click', () => goTo(i));
-          dotsWrap.appendChild(d);
-        }
-        timer = setInterval(() => {
-          pv = perView();
-          goTo(current + 1 > total - pv ? 0 : current + 1);
-        }, 4000);
+        clearInterval(timer); clearTimeout(pauseTimer);
+        current = 0; buildDots(); goTo(0); startAuto();
       });
     })();
   </script>
