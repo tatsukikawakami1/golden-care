@@ -306,14 +306,41 @@
     .voice-score { font-family: var(--serif-en); font-size: 80px; font-weight: 300; line-height: 1; color: var(--dark); }
     .voice-stars { font-size: 18px; letter-spacing: 5px; color: var(--gold); margin: 8px 0 6px; }
     .voice-count { font-size: 11px; letter-spacing: 0.18em; color: var(--muted); }
-    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left; }
-    .voice-card { padding: 36px 30px; background: var(--bg); border-top: 2px solid var(--gold); transition: box-shadow 0.3s; }
+
+    /* Voice carousel */
+    .voice-carousel-wrap { overflow: hidden; }
+    .voice-track { display: flex; transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .voice-slide { flex: 0 0 calc(100% / 3); padding: 0 12px; box-sizing: border-box; }
+
+    .voice-card { padding: 36px 30px; background: var(--bg); border-top: 2px solid var(--gold); transition: box-shadow 0.3s; text-align: left; height: 100%; }
     .voice-card:hover { box-shadow: 0 6px 30px rgba(0,0,0,0.06); }
     .voice-card-stars { font-size: 12px; letter-spacing: 4px; color: var(--gold); margin-bottom: 16px; }
     .voice-card-text { font-size: 14px; line-height: 2; color: #555; font-weight: 300; margin-bottom: 20px; }
     .voice-card-name { font-size: 14px; font-weight: 500; color: var(--dark); letter-spacing: 0.08em; margin-bottom: 4px; }
     .voice-card-treatment { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; padding-top: 10px; border-top: 1px solid var(--border); }
-    .voice-link { margin-top: 44px; display: inline-block; font-size: 12px; letter-spacing: 0.22em; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 3px; transition: color 0.3s, border-color 0.3s; }
+
+    /* Voice carousel controls */
+    .voice-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; margin-top: 36px;
+    }
+    .voice-arrow {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border); background: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s; color: var(--muted);
+    }
+    .voice-arrow:hover { border-color: var(--gold); color: var(--gold); }
+    .voice-arrow svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .voice-dots { display: flex; gap: 8px; }
+    .voice-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--border); cursor: pointer;
+      transition: background 0.3s, transform 0.3s; border: none;
+    }
+    .voice-dot.active { background: var(--gold); transform: scale(1.3); }
+
+    .voice-link { margin-top: 40px; display: inline-block; font-size: 12px; letter-spacing: 0.22em; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 3px; transition: color 0.3s, border-color 0.3s; }
     .voice-link:hover { color: var(--gold); border-color: var(--gold); }
 
     /* ================================
@@ -727,6 +754,7 @@
       .menu-card.featured { grid-column: span 2; }
       .menu-card.featured .menu-card-inner { aspect-ratio: 16/9; }
       .ba-slide { flex: 0 0 50%; }
+      .voice-slide { flex: 0 0 50%; }
     }
 
     @media (max-width: 768px) {
@@ -745,7 +773,7 @@
       .menu-card.featured { grid-column: span 1; }
       .menu-card.featured .menu-card-inner { aspect-ratio: 4/3; }
       .menu-card:not(.featured) .menu-card-inner { aspect-ratio: 3/2; }
-      .voice-grid { grid-template-columns: 1fr; }
+      .voice-slide { flex: 0 0 100%; }
       .ba-slide { flex: 0 0 100%; }
       .staff-grid { grid-template-columns: 1fr; border: 1px solid var(--border); }
       .staff-card { border-right: none; border-bottom: 1px solid var(--border); }
@@ -774,7 +802,7 @@
       <li><a href="#staff">Staff</a></li>
       <li><a href="#access">Access</a></li>
     </ul>
-    <a href="https://lin.ee/529zwesf" target="_blank" class="nav-cta">
+    <a href="https://lin.ee/z3lnfpY" target="_blank" class="nav-cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       LINE で予約
     </a>
@@ -792,7 +820,7 @@
     <a href="#voice" onclick="closeDrawer()">Voice</a>
     <a href="#staff" onclick="closeDrawer()">Staff</a>
     <a href="#access" onclick="closeDrawer()">Access</a>
-    <a href="https://lin.ee/529zwesf" target="_blank" onclick="closeDrawer()" class="drawer-cta">
+    <a href="https://lin.ee/z3lnfpY" target="_blank" onclick="closeDrawer()" class="drawer-cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
       LINE で予約する
     </a>
@@ -806,7 +834,7 @@
       <p class="hero-sub">Esthetic Salon &nbsp;—&nbsp; Okazaki, Aichi</p>
       <h1 class="hero-title">GOLDEN<br>CARE</h1>
       <p class="hero-tagline">女性のための美を、追求する。</p>
-      <a href="https://lin.ee/529zwesf" target="_blank" class="hero-btn">
+      <a href="https://lin.ee/z3lnfpY" target="_blank" class="hero-btn">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         LINEでご予約はこちら
       </a>
@@ -830,7 +858,7 @@
           <p>GOLDEN CAREは、愛知県岡崎市にあるプライベートエステサロンです。エステ歴10〜15年のスペシャリストが、お客様一人ひとりのお悩みに寄り添い、本質的な美しさへと導きます。</p>
           <p>韓国発祥の最先端美容技術と熟練した手技を融合させた施術は、「一度で変わった」「毎月通うのが楽しみ」と多くのお客様からご好評をいただいております。</p>
           <div class="concept-quote">
-            <p>「コルギには絶対の自信があります。<br>フェイスラインが変わると、自分への自信が変わる。<br>自信が変わると、毎日が変わる——。<br>その変化を、ここで生み出し続けています。」</p>
+            <p>小顔＆肌管理専門、お客様に結果と感動を。<br>GOLDEN CAREの名のとおり、24時間素敵な自分でいられるよう、全力でお手伝いします。<br>エステの概念を覆す、エリア屈指の技術を。</p>
           </div>
         </div>
       </div>
@@ -965,26 +993,69 @@
           <div class="voice-count">総合評価 &nbsp;|&nbsp; 57件のクチコミ（ホットペッパービューティー）</div>
         </div>
       </div>
-      <div class="voice-grid">
-        <div class="voice-card fi fi-d1">
-          <div class="voice-card-stars">★★★★★</div>
-          <p class="voice-card-text">「施術直後に鏡を見てびっくり！エラの張りが気になっていたのに、一度でフェイスラインがすっきりして小顔になった気がします。毎月来るのが今から楽しみです。」</p>
-          <p class="voice-card-name">田中 美咲 さん（32歳）</p>
-          <p class="voice-card-treatment">韓国コルギ / 7Dコルギ（小顔矯正）</p>
-        </div>
-        <div class="voice-card fi fi-d2">
-          <div class="voice-card-stars">★★★★★</div>
-          <p class="voice-card-text">「長年悩んでいた毛穴の黒ずみと肌のざらつきが改善されました。スタッフさんが肌の状態を丁寧に見てくれて、自分に合ったケアを提案してもらえたのが嬉しかったです。」</p>
-          <p class="voice-card-name">山本 さくら さん（26歳）</p>
-          <p class="voice-card-treatment">毛穴エクストラクション ＋ ハイドラ</p>
-        </div>
-        <div class="voice-card fi fi-d3">
-          <div class="voice-card-stars">★★★★★</div>
-          <p class="voice-card-text">「50代に入ってからフェイスラインのたるみが気になりはじめ、正直もう諦めていました。でも1回の施術でこんなに変わるなんて…。もっと早く来ればよかったと心から思います。」</p>
-          <p class="voice-card-name">佐藤 恵子 さん（54歳）</p>
-          <p class="voice-card-treatment">韓国コルギ / 7Dコルギ（小顔・リフトアップ）</p>
+
+      <!-- Voice Carousel -->
+      <div class="voice-carousel-wrap fi">
+        <div class="voice-track" id="voiceTrack">
+
+          <div class="voice-slide">
+            <div class="voice-card">
+              <div class="voice-card-stars">★★★★★</div>
+              <p class="voice-card-text">「施術直後に鏡を見てびっくり！エラの張りが気になっていたのに、一度でフェイスラインがすっきりして小顔になった気がします。毎月来るのが今から楽しみです。」</p>
+              <p class="voice-card-name">田中 美咲 さん（32歳）</p>
+              <p class="voice-card-treatment">韓国コルギ / 7Dコルギ（小顔矯正）</p>
+            </div>
+          </div>
+
+          <div class="voice-slide">
+            <div class="voice-card">
+              <div class="voice-card-stars">★★★★★</div>
+              <p class="voice-card-text">「長年悩んでいた毛穴の黒ずみと肌のざらつきが改善されました。スタッフさんが肌の状態を丁寧に見てくれて、自分に合ったケアを提案してもらえたのが嬉しかったです。」</p>
+              <p class="voice-card-name">山本 さくら さん（26歳）</p>
+              <p class="voice-card-treatment">毛穴エクストラクション ＋ ハイドラ</p>
+            </div>
+          </div>
+
+          <div class="voice-slide">
+            <div class="voice-card">
+              <div class="voice-card-stars">★★★★★</div>
+              <p class="voice-card-text">「50代に入ってからフェイスラインのたるみが気になりはじめ、正直もう諦めていました。でも1回の施術でこんなに変わるなんて…。もっと早く来ればよかったと心から思います。」</p>
+              <p class="voice-card-name">佐藤 恵子 さん（54歳）</p>
+              <p class="voice-card-treatment">韓国コルギ / 7Dコルギ（小顔・リフトアップ）</p>
+            </div>
+          </div>
+
+          <div class="voice-slide">
+            <div class="voice-card">
+              <div class="voice-card-stars">★★★★★</div>
+              <p class="voice-card-text">「妻に勧められて半信半疑で来店しましたが、施術後に顎のラインが明らかにすっきりしていて驚きました。男性でも全然行きやすい雰囲気で、また予約しています。」</p>
+              <p class="voice-card-name">渡辺 健太 さん（35歳）</p>
+              <p class="voice-card-treatment">韓国コルギ / 小顔矯正</p>
+            </div>
+          </div>
+
+          <div class="voice-slide">
+            <div class="voice-card">
+              <div class="voice-card-stars">★★★★★</div>
+              <p class="voice-card-text">「頭皮のコリがひどくて、肩こりと顔のむくみに長年悩んでいました。ドライヘッドマッサージを受けたら施術後にスッと顔が軽くなって感動！定期的に通いたいと思います。」</p>
+              <p class="voice-card-name">中村 あかね さん（38歳）</p>
+              <p class="voice-card-treatment">ドライヘッドマッサージ / 頭蓋骨矯正</p>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <div class="voice-controls">
+        <button class="voice-arrow" id="voicePrev" aria-label="前へ">
+          <svg viewBox="0 0 16 16"><polyline points="10,2 4,8 10,14"/></svg>
+        </button>
+        <div class="voice-dots" id="voiceDots"></div>
+        <button class="voice-arrow" id="voiceNext" aria-label="次へ">
+          <svg viewBox="0 0 16 16"><polyline points="6,2 12,8 6,14"/></svg>
+        </button>
+      </div>
+
       <a href="https://beauty.hotpepper.jp/kr/slnH000647446/review/" target="_blank" class="voice-link">ホットペッパービューティーでクチコミをすべて見る →</a>
     </div>
   </section>
@@ -1077,7 +1148,7 @@
           <table class="access-table">
             <tr><th>SALON</th><td>GOLDEN CARE</td></tr>
             <tr><th>ADDRESS</th><td>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</td></tr>
-            <tr><th>HOURS</th><td>8:00 〜 21:00<br><span style="font-size:12px;color:var(--muted);">定休日なし（年中無休）</span></td></tr>
+            <tr><th>HOURS</th><td>9:00 〜 20:00<br><span style="font-size:12px;color:var(--muted);">定休日なし（年中無休）</span></td></tr>
             <tr><th>ACCESS</th><td>東岡崎駅より車で約10分<br>岡崎ICより車で約8分<br>県道26号沿い<br><span class="parking-tag">P 駐車場あり</span></td></tr>
             <tr><th>TEL</th><td><a href="tel:09012831567">090-1283-1567</a></td></tr>
           </table>
@@ -1110,7 +1181,7 @@
             24時間いつでも受付 &nbsp;·&nbsp; お気軽にメッセージを送るだけ<br>
             日程・メニュー・ご要望もまとめてご相談いただけます
           </p>
-          <a href="https://lin.ee/529zwesf" target="_blank" class="reserve-line-cta">
+          <a href="https://lin.ee/z3lnfpY" target="_blank" class="reserve-line-cta">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             LINE で予約する &nbsp;（友だち追加）
           </a>
@@ -1139,7 +1210,7 @@
           <div class="reserve-sub-detail">
             ③ お電話でのご予約
             <strong><a href="tel:09012831567">090-1283-1567</a></strong>
-            営業時間内（8:00〜21:00）
+            営業時間内（9:00〜20:00）
           </div>
         </div>
       </div>
@@ -1156,7 +1227,7 @@
       <h2 class="cta-title">Book a Treatment</h2>
       <p class="cta-sub">あなたの美しさを、今日から始めましょう。</p>
       <div class="cta-btns">
-        <a href="https://lin.ee/529zwesf" target="_blank" class="btn-line-cta">
+        <a href="https://lin.ee/z3lnfpY" target="_blank" class="btn-line-cta">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
           LINE でご予約はこちら
         </a>
@@ -1176,7 +1247,7 @@
             <a href="https://www.instagram.com/kogao_okazaki_goldencare?igsh=bmwxY3QzYWx0Njk1&utm_source=qr" target="_blank" title="Instagram">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="https://lin.ee/529zwesf" target="_blank" title="LINE公式アカウント">
+            <a href="https://lin.ee/z3lnfpY" target="_blank" title="LINE公式アカウント">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
             </a>
           </div>
@@ -1200,7 +1271,7 @@
           <ul class="footer-info-list">
             <li>〒444-0071<br>愛知県岡崎市稲熊町８丁目２１３<br>ジェットビル 2F</li>
             <li>TEL: 090-1283-1567</li>
-            <li>営業時間: 8:00〜21:00<br>年中無休</li>
+            <li>営業時間: 9:00〜20:00<br>年中無休</li>
           </ul>
         </div>
       </div>
@@ -1218,7 +1289,7 @@
   </footer>
 
   <!-- Floating LINE Button -->
-  <a href="https://lin.ee/529zwesf" target="_blank" id="float-line">
+  <a href="https://lin.ee/z3lnfpY" target="_blank" id="float-line">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     LINE で予約
   </a>
@@ -1252,6 +1323,62 @@
       document.getElementById('drawer').classList.remove('open');
       document.body.style.overflow = '';
     }
+
+    /* -- Voice Carousel -- */
+    (function() {
+      const track    = document.getElementById('voiceTrack');
+      const dotsWrap = document.getElementById('voiceDots');
+      const slides   = track.querySelectorAll('.voice-slide');
+      const total    = slides.length;
+
+      function perView() {
+        return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+      }
+
+      let current = 0;
+      let pv = perView();
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        pv = perView();
+        const maxI = total - pv;
+        for (let i = 0; i <= maxI; i++) {
+          const d = document.createElement('button');
+          d.className = 'voice-dot' + (i === 0 ? ' active' : '');
+          d.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(d);
+        }
+      }
+
+      function goTo(idx) {
+        pv = perView();
+        const maxI = total - pv;
+        current = Math.max(0, Math.min(idx, maxI));
+        track.style.transform = `translateX(-${(100 / pv) * current}%)`;
+        dotsWrap.querySelectorAll('.voice-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      document.getElementById('voicePrev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('voiceNext').addEventListener('click', () => goTo(current + 1));
+
+      buildDots();
+
+      let timer = setInterval(() => {
+        pv = perView();
+        goTo(current + 1 > total - pv ? 0 : current + 1);
+      }, 5000);
+
+      window.addEventListener('resize', () => {
+        clearInterval(timer);
+        current = 0;
+        buildDots();
+        goTo(0);
+        timer = setInterval(() => {
+          pv = perView();
+          goTo(current + 1 > total - pv ? 0 : current + 1);
+        }, 5000);
+      });
+    })();
 
     /* -- Before/After Carousel -- */
     (function() {
